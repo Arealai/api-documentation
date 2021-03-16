@@ -134,7 +134,7 @@ In addition, the response includes a unique *upload_session_uuid*. This upload_s
 
 ## Data Extraction API
 
-**Document Classification API: https://areal.ai/api/v1/ocr/**
+**Data Extraction API: https://areal.ai/api/v1/ocr/**
 
 Data extraction API is the same API as the Document Classification API. There is no need to make separate API calls to both classify and extract data from a document. Data extraction will automatically take place once a document is classified (when a template is assigned to a document) IF data extraction is provisioned for that specific template in your organization. 
 
@@ -199,11 +199,14 @@ In the case of data extraction, the API response will return a list of **extract
 }
 ```
 
-## Pulling Documents
+## Get Documents
+
+**Data Extraction API: https://areal.ai/api/v1/ocr/**
+
+This is a GET API call. The following parameters must be provided:
 
 
-
-## Sessions, What are they and how to pull them?
+## Sessions, Search and Get Sessions
 
 
 
