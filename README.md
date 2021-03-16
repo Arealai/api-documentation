@@ -8,7 +8,14 @@ In this document, we will review how to get started using Areal.ai APIs
 
 ## Getting Started
 
-Document processing is accomplished with a single API call. Sample Python code is as follows:
+Document processing is accomplished with a single API call. To make a successful API call to process a document, provide the following information:
+
+- Authorization headers
+- Name of the file
+- Content type
+- PDF or image in the base64 format
+
+Sample Python code is as follows:
 
 ```
 import base64
