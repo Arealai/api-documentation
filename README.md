@@ -108,7 +108,7 @@ A sample body data is as follows:
 
 A sample response to this Document Classification API call will be as follows. 
 
-"results" key will include a list of documents detected within the original document uploaded to the platform. Each document will have a "template_uuid" assigned to it. This template_uuid represents the unique ID of the document type detected. 
+*results* key will include a list of documents detected within the original document uploaded to the platform. Each document will have a *template_uuid* assigned to it. This template_uuid represents the unique ID of the document type detected. 
 
 ```
 {
@@ -129,7 +129,7 @@ A sample response to this Document Classification API call will be as follows.
     "upload_session_uuid": "8a67ce10-8670-11eb-a0e4-af71473a31ce"
 }
 ```
-In addition, the response includes a unique "upload_session_uuid". This upload_session_uuid will be the same UUID as the initial upload_session_uuid provided in the OCR API. If you provide a upload_session_uuid, these documents will be added to that Session Folder. If not, the Areal.ai platform will create a new session and add these documents to that session.  
+In addition, the response includes a unique *upload_session_uuid*. This upload_session_uuid will be the same UUID as the initial upload_session_uuid provided in the OCR API. If you provide a upload_session_uuid, these documents will be added to that Session Folder. If not, the Areal.ai platform will create a new session and add these documents to that session.  
 
 
 ## Data Extraction API
@@ -138,7 +138,7 @@ In addition, the response includes a unique "upload_session_uuid". This upload_s
 
 Data extraction API is the same API as the Document Classification API. There is no need to make separate API calls to both classify and extract data from a document. Data extraction will automatically take place once a document is classified (when a template is assigned to a document) IF data extraction is provisioned for that specific template in your organization. 
 
-In the case of data extraction, the API response will return a list of "extracted_data". Each extracted_data will contain a "component" which defines the details of the data extracted. Extracted Data field will also contain the confidence_rate, processed_value (extracted data) and page fields. While *component_uuid* fields standard across all documents, *extracted_data* field will change from document to document. 
+In the case of data extraction, the API response will return a list of **extracted_data**. Each extracted_data will contain a **component** object which defines the details of the data extracted. Extracted Data field will also contain the confidence_rate, processed_value (extracted data) and page fields. While *component* objects are assigned to *template* objects and are standard across all documents with the same template, *extracted_data* object will change from document to document since different data points will be extracted from document.
 
 ```
 {
@@ -198,9 +198,6 @@ In the case of data extraction, the API response will return a list of "extracte
     "upload_session_uuid": "6d1cd890-85f9-11eb-9ba8-614f814eb3d6"
 }
 ```
-
-
-
 
 ## Pulling Documents
 
