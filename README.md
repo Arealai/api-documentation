@@ -100,21 +100,105 @@ A sample body data is as follows:
 ```
 { "source": "api",
   "name":"postman.png",
-  "image":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUAAASUVORK5CYII=...",
+  "image":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUAAASUVORK5CYII...",
   "template_uuid": template_uuid,
-  "upload_session_uuid":'6d1cd890-85f9-11eb-9ba8-614f814eb3d6'
+  "upload_session_uuid":'8a67ce10-8670-11eb-a0e4-af71473a31ce'
 }
 ```
 
-The full sample response to this API call can be seen here. 
+A sample response to this Document Classification API call will be as follows. 
 
-For the matter of 
+"results" key will include a list of documents detected within the original document uploaded to the platform. Each document will have a "template_uuid" assigned to it. This template_uuid represents the unique ID of the document type detected. 
 
-
-
+```
+{
+    "results": [
+        {
+            "document_uuid": "0583b9a6-f36b-4e78-83dd-6490099e3b41",
+            "extracted_data": [],
+            "processing_time_ms": 2968,
+            "template_uuid": "4e43f618-c09c-4ebb-bbce-d4666657e34c"
+        },
+        {
+            "document_uuid": "07226039-d402-4de0-a3b4-4b41359c497c",
+            "extracted_data": [],
+            "processing_time_ms": 1065,
+            "template_uuid": "a134b46f-217d-4cd3-a953-927ad98525a8"
+        }
+    ],
+    "upload_session_uuid": "8a67ce10-8670-11eb-a0e4-af71473a31ce"
+}
+```
+In addition, the response includes a unique "upload_session_uuid". This upload_session_uuid will be the same UUID as the initial upload_session_uuid provided in the OCR API. If you provide a upload_session_uuid, these documents will be added to that Session Folder. If not, the Areal.ai platform will create a new session and add these documents to that session.  
 
 
 ## Data Extraction API
+
+**Document Classification API: https://areal.ai/api/v1/ocr/**
+
+Data extraction API is the same API as the Document Classification API. There is no need to make separate API calls to both classify and extract data from a document. Data extraction will automatically take place once a document is classified (when a template is assigned to a document) IF data extraction is provisioned for that specific template in your organization. 
+
+In the case of data extraction, the API response will return a list of "extracted_data". Each extracted_data will contain a "component" which defines the details of the data extracted. Extracted Data field will also contain the confidence_rate, processed_value (extracted data) and page fields. While *component_uuid* fields standard across all documents, *extracted_data* field will change from document to document. 
+
+```
+{
+    "results": [
+        {
+            "document_uuid": "d0d2e07a-1da4-4aec-97ff-5edeb2018ded",
+            "extracted_data": [
+                {
+                    "component": {
+                        "category": "text",
+                        "name": "Wages",
+                        "uuid": "9b1153e0-e300-11e9-93dd-1f1efd155a62"
+                    },
+                    "confidence_rate": 0.97,
+                    "page": 0,
+                    "processed_value": "50,000.00",
+                    "uuid": "8ebfaca6-ddca-476a-ba66-ab51eb2fc667"
+                },
+                {
+                    "component": {
+                        "category": "text",
+                        "name": "Name",
+                        "uuid": "cd08decf-e179-47da-b6bb-0bc45c8efa85"
+                    },
+                    "confidence_rate": 0.97,
+                    "page": 0,
+                    "processed_value": "",
+                    "uuid": "c3ae929e-9d2b-42ea-93ac-3203775eec02"
+                },
+                {
+                    "component": {
+                        "category": "text",
+                        "name": "State",
+                        "uuid": "ffcfe2b0-e300-11e9-93dd-1f1efd155a62"
+                    },
+                    "confidence_rate": 0.97,
+                    "page": 0,
+                    "processed_value": "PA",
+                    "uuid": "c8e69635-6b2e-4b0a-adca-d18707a2a96c"
+                },
+                {
+                    "component": {
+                        "category": "integer",
+                        "name": "Year",
+                        "uuid": "bb21fca0-f74d-11e9-8b38-e5e69c6c59af"
+                    },
+                    "confidence_rate": 0.97,
+                    "page": 0,
+                    "processed_value": "2017",
+                    "uuid": "e53a693b-2c41-4da5-8776-e86af6620d14"
+                }
+            ],
+            "processing_time_ms": 2721,
+            "template_uuid": "4e0550c2-ecbf-40d4-bdf0-2f9de24b525f"
+        }
+    ],
+    "upload_session_uuid": "6d1cd890-85f9-11eb-9ba8-614f814eb3d6"
+}
+```
+
 
 
 
