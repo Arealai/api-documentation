@@ -31,7 +31,6 @@ data = {
 
 response = requests.post('https://areal.ai/api/v1/ocr/', headers=headers, json=data)
 
-
 Areal.ai’s API supports concurrent requests/calls. API connections must be over HTTPS secured channel and must be authenticated in the headers as shown in the sample code above.
 
 
