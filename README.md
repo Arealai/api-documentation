@@ -102,11 +102,13 @@ A sample body data is as follows:
   "name":"postman.png",
   "image":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUAAASUVORK5CYII=...",
   "template_uuid": template_uuid,
-  "upload_session_uuid":'7c31d8db-a9a0-44b5-a07b-f50aca89c899'
+  "upload_session_uuid":'6d1cd890-85f9-11eb-9ba8-614f814eb3d6'
 }
 ```
 
-A sample response to this API call can be seen here.
+The full sample response to this API call can be seen here. 
+
+For the matter of 
 
 
 
