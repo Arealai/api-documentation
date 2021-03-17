@@ -47,7 +47,7 @@ Areal.ai’s API supports concurrent requests/calls. To process multiple documen
 *API connections must be over HTTPS secured channel.* 
 
 
-## Authentication #authentication
+## Authentication (#authentication)
 
 API calls must be authenticated in the headers. To be able to authorize, construct the following phase and add it to the headers with Authorization key.
 
