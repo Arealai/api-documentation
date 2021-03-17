@@ -94,7 +94,7 @@ post_data = {
 }
 ```
 
-Image type could be either 'data:application/pdf;base64,' for PDF files or 'data:image/png;base64,' which covers all image types.
+Image type could be either 'data:application/pdf;base64,' for PDF files, 'data:image/png;base64,' or 'data:image/jpeg;base64,' for different image types.
 
 A sample body data is as follows:
 ```
@@ -201,9 +201,32 @@ In the case of data extraction, the API response will return a list of **extract
 
 ## Get Documents
 
-**Data Extraction API: https://areal.ai/api/v1/ocr/**
+**Data Extraction API: https://areal.ai/api/v1/document/**
 
-This is a GET API call. The following parameters must be provided:
+This is a GET API call. The following filters are applicable:
+
+
+**document_uuid**
+Returns a specific document. A sample call: 
+```
+https://areal.ai/api/v1/document/2dbd28a1-4b64-4525-bb51-4eacf8363f03
+```
+
+**upload_session Filter**
+
+Returns all documents within that session. A sample call: 
+```
+https://areal.ai/api/v1/document/?upload_session=6d1cd890-85f9-11eb-9ba8-614f814eb3d6
+```
+
+**All Other Applicable Filters**
+
+Default filters are:
+
+- status
+- created_at
+- updated_at
+
 
 
 ## Sessions, Search and Get Sessions
