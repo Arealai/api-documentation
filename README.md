@@ -207,9 +207,57 @@ This is a GET API call. The following filters are applicable:
 
 
 **document_uuid**
+
 Returns a specific document. A sample call: 
 ```
 https://areal.ai/api/v1/document/2dbd28a1-4b64-4525-bb51-4eacf8363f03
+```
+
+A sample response:
+```
+{
+    "created_at": "2021-03-16T03:59:26.446073",
+    "extracted_data": [
+        {
+            "approved_value": "50,000.00",
+            "component": {
+                "category": "text",
+                "name": "Wages",
+                "uuid": "9b1153e0-e300-11e9-93dd-1f1efd155a62"
+            },
+            "confidence_rate": "0.97",
+            "from_page_number": 0,
+            "height_percent": "0.0291",
+            "name": "1 Wages",
+            "processed_value": "50,000.00",
+            "uuid": "87390cf8-8f2a-4b6c-ab9e-1fb616097df8",
+            "width_percent": "0.0667",
+            "x_percent": "0.3469",
+            "y_percent": "0.7557"
+        },
+    ],
+    "name": "postman_W2.png",
+    "notes": null,
+    "original_document_uuid": "207d61e6-268e-4ba7-94ea-5a8112ea15c1",
+    "page_count": 1,
+    "pages": [
+        "34efc562-05ac-48a8-886a-7b3efbc4c876"
+    ],
+    "resource_uri": "/api/v1/document/2dbd28a1-4b64-4525-bb51-4eacf8363f03/",
+    "status": "draft",
+    "template": {
+        "name": "W2",
+        "uuid": "4e0550c2-ecbf-40d4-bdf0-2f9de24b525f"
+    },
+    "updated_at": "2021-03-16T03:59:26.446099",
+    "upload_session": {
+        "name": "postman",
+        "uuid": "6d1cd890-85f9-11eb-9ba8-614f814eb3d6"
+    },
+    "user_extracted_data": null,
+    "uuid": "2dbd28a1-4b64-4525-bb51-4eacf8363f03"
+}
+
 ```
 
 **upload_session Filter**
