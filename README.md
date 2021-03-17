@@ -290,9 +290,9 @@ Default parameters are:
 
 Request Method: GET.
 
-Sessions are used to group documents under a "folder". In the mortgage application use-case, a session will represent the loan file. While in a title underwriting use-case, a session will represent the title file. 
+Sessions are used to group documents under a "folder". In a mortgage application use-case, a session will represent the loan file. While in a title underwriting use-case, a session will represent the title file. 
 
-Sessions can also be used to identify a specific document processing request. For example, if you trigger a document processing request and specify a *upload_session_uuid* in that request, then you can find the processed documents by simply getting documents that are linked to that session. 
+Sessions can also be used to identify a specific document processing request. For example, if you trigger a document processing request and specify a *upload_session_uuid* in that request, then you can find the processed documents by simply making a Get Document request and adding the *upload_session* filter.
 
 
 3 common use-cases are:
