@@ -302,7 +302,7 @@ Sessions can also be used to identify a specific document processing request. Fo
 A sample request is:
 
 ```
-http://127.0.0.1:8000/api/v1/upload_session/45bd28a1-4b64-4525-bb51-4eacf8363f55
+https://areal.ai/api/v1/upload_session/45bd28a1-4b64-4525-bb51-4eacf8363f55
 ```
 
 * Getting a list of sessions
@@ -310,7 +310,7 @@ http://127.0.0.1:8000/api/v1/upload_session/45bd28a1-4b64-4525-bb51-4eacf8363f55
 This is a GET API call. A sample request is:
 
 ```
-http://127.0.0.1:8000/api/v1/upload_session/?order_by=-updated_at&limit=20&offset=0&status=all
+https://areal.ai/api/v1/upload_session/?order_by=-updated_at&limit=20&offset=0&status=all
 ```
 
 * Searching for a session
