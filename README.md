@@ -6,6 +6,8 @@ Areal.ai can be used in various use-cases including operations that require real
 
 In this document, we will review how to get started using Areal.ai APIs
 
+  * [Authentication](#authentication)
+
 ## Getting Started
 
 Document processing is accomplished with a single API call. To make a successful API call to process a document, provide the following information:
@@ -45,7 +47,7 @@ Areal.ai’s API supports concurrent requests/calls. To process multiple documen
 *API connections must be over HTTPS secured channel.* 
 
 
-## Authentication
+## Authentication #authentication
 
 API calls must be authenticated in the headers. To be able to authorize, construct the following phase and add it to the headers with Authorization key.
 
