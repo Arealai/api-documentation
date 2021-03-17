@@ -6,7 +6,6 @@ Areal.ai can be used in various use-cases including operations that require real
 
 In this document, we will review how to get started using Areal.ai APIs
 
-  * [Authentication](#authentication)
 
 ## Getting Started
 
@@ -47,7 +46,7 @@ Areal.ai’s API supports concurrent requests/calls. To process multiple documen
 *API connections must be over HTTPS secured channel.* 
 
 
-## Authentication (#authentication)
+## Authentication
 
 API calls must be authenticated in the headers. To be able to authorize, construct the following phase and add it to the headers with Authorization key.
 
@@ -62,7 +61,9 @@ Customer Account ID is the username procvided and the Customer Key is the API Ke
 
 **Document Classification API: https://areal.ai/api/v1/ocr/**
 
-This is a POST API call. The following parameters must be provided:
+Request Method: POST. 
+
+The following parameters must be provided:
 
 Headers:
 
@@ -82,7 +83,7 @@ post_data = {
 }
 ```
 
-Other optional fields are **template_uuid** and **upload_session_uuid**. Template UUID basically asks platform to skip Document Classification and use provided template to extract data from the document. This could be useful for speed optimization if you alredy know the type of the document you are uploading.  
+Other optional fields are **template_uuid**, **upload_session_uuid** and **upload_session_name**. Template UUID basically asks platform to skip Document Classification and use provided template to extract data from the document. This could be useful for speed optimization if you alredy know the type of the document you are uploading.  
 
 Upload Sessions are used to group documents under a specific folder. Sessions are extremely useful to group all files of a mortgage application or a title document package. We will cover this more in the Sessions section below. 
 
@@ -93,6 +94,7 @@ post_data = {
    'image': image_type + str(image_base64),
    'template_uuid': template_uuid,
    'upload_session_uuid':session_uuid
+   'upload_session_name':session_name
 }
 ```
 
@@ -137,6 +139,8 @@ In addition, the response includes a unique *upload_session_uuid*. This upload_s
 ## Data Extraction API
 
 **Data Extraction API: https://areal.ai/api/v1/ocr/**
+
+Request Method: POST.
 
 Data extraction API is the same API as the Document Classification API. There is no need to make separate API calls to both classify and extract data from a document. Data extraction will automatically take place once a document is classified (when a template is assigned to a document) IF data extraction is provisioned for that specific template in your organization. 
 
@@ -203,10 +207,11 @@ In the case of data extraction, the API response will return a list of **extract
 
 ## Get Documents
 
-**Data Extraction API: https://areal.ai/api/v1/document/**
+**Document API: https://areal.ai/api/v1/document/**
 
-This is a GET API call. The following filters are applicable:
+Request Method: GET. 
 
+The following filters are applicable:
 
 **document_uuid**
 
@@ -264,27 +269,95 @@ A sample response:
 
 **upload_session Filter**
 
-Returns all documents within that session. A sample call: 
+Returns all documents within that session. A sample request: 
 ```
-https://areal.ai/api/v1/document/?upload_session=6d1cd890-85f9-11eb-9ba8-614f814eb3d6
+https://areal.ai/api/v1/document/?upload_session=6d1cd890-85f9-11eb-9ba8-614f814eb3d6&order_by=-updated_at&limit=100&offset=0
 ```
+This request orders the results based on the updated_date.
 
-**All Other Applicable Filters**
+**Applicable Sorting and Filtering Parameters**
 
-Default filters are:
+Default parameters are:
 
 - status
 - created_at
 - updated_at
 
 
-
 ## Sessions, Search and Get Sessions
 
+**Session API: https://areal.ai/api/v1/upload_session/**
+
+Request Method: GET.
+
+Sessions are used to group documents under a "folder". In the mortgage application use-case, a session will represent the loan file. While in a title underwriting use-case, a session will represent the title file. 
+
+Sessions can also be used to identify a specific document processing request. For example, if you trigger a document processing request and specify a *upload_session_uuid* in that request, then you can find the processed documents by simply getting documents that are linked to that session. 
 
 
-## Giving Feedback to Platform
+3 common use-cases are:
 
+* Getting specifics of a session
+
+A sample request is:
+
+```
+http://127.0.0.1:8000/api/v1/upload_session/45bd28a1-4b64-4525-bb51-4eacf8363f55
+```
+
+* Getting a list of sessions
+
+This is a GET API call. A sample request is:
+
+```
+http://127.0.0.1:8000/api/v1/upload_session/?order_by=-updated_at&limit=20&offset=0&status=all
+```
+
+* Searching for a session
+
+You can search for different phrases in session names and retrive sessions containing the words you are looking for. This is extremely helpful to search for mortgage or title files with certain keywords such as the address of the property. Please recall that, a session name including certain keywords (address, file number etc.) should be provided in document processing requests in order to be able to search for these keywords later.
+
+A sample search request looks like:
+
+```
+http://areal.ai/api/v1/document/?limit=100&offset=0&search=SEARCH-PHRASE
+```
+The search results will return  sessions and documents whose names contain or match the search phrase.
+
+**Applicable Sorting and Filtering Parameters**
+
+Default parameters are:
+
+- status
+- created_at
+- updated_at
+
+
+## Giving Feedback for Extracted Data or Document
+
+**Feedback API: http://areal.ai/api/v1/extracted_data/extracted-data-uuid/**
+
+Request Method: **PATCH**.
+
+This API is used to replace the wrong or the missing extracted data value with the correct one. This request should include the following *approvde_value* key-value pair in the body.
+
+```
+{
+   approved_value: "3.8750"   
+}
+```
+**Document Feedback API: http://areal.ai/api/v1/extracted_data/extracted-data-uuid/**
+
+Request Method: **PATCH**.
+
+This API is used to approve the entire document. Approving a document means that the assigned classification to a document and all extracted data fields are correct. This API should be called once all data fields are corrected using the API call above to give the best feedback back to the platform.
+
+```
+{
+   status: "active"
+}
+```
+The status key-value pair above should be added to this request.
 
 
 ## Sample Response
