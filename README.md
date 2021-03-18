@@ -339,7 +339,7 @@ Default parameters are:
 
 Request Method: **PATCH**.
 
-This API is used to replace the wrong or the missing extracted data value with the correct one. This request should include the following *approvde_value* key-value pair in the body.
+This API is used to replace the wrong or the missing extracted data value with the correct one. This request should include the following *approved_value* key-value pair in the body.
 
 ```
 {
