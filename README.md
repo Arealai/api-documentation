@@ -61,7 +61,7 @@ Customer Account ID is the username procvided and the Customer Key is the API Ke
 
 **Document Classification API: https://areal.ai/api/v1/ocr/**
 
-Request Method: POST. 
+Request Method: **POST**. 
 
 The following parameters must be provided:
 
@@ -140,7 +140,7 @@ In addition, the response includes a unique *upload_session_uuid*. This upload_s
 
 **Data Extraction API: https://areal.ai/api/v1/ocr/**
 
-Request Method: POST.
+Request Method: **POST**.
 
 Data extraction API is the same API as the Document Classification API. There is no need to make separate API calls to both classify and extract data from a document. Data extraction will automatically take place once a document is classified (when a template is assigned to a document) IF data extraction is provisioned for that specific template in your organization. 
 
@@ -209,7 +209,7 @@ In the case of data extraction, the API response will return a list of **extract
 
 **Document API: https://areal.ai/api/v1/document/**
 
-Request Method: GET. 
+Request Method: **GET**. 
 
 The following filters are applicable:
 
@@ -288,7 +288,7 @@ Default parameters are:
 
 **Session API: https://areal.ai/api/v1/upload_session/**
 
-Request Method: GET.
+Request Method: **GET**.
 
 Sessions are used to group documents under a "folder". In a mortgage application use-case, a session will represent the loan file. While in a title underwriting use-case, a session will represent the title file. 
 
@@ -307,7 +307,7 @@ https://areal.ai/api/v1/upload_session/45bd28a1-4b64-4525-bb51-4eacf8363f55
 
 * Getting a list of sessions
 
-This is a GET API call. A sample request is:
+This is a **GET** method. A sample request is:
 
 ```
 https://areal.ai/api/v1/upload_session/?order_by=-updated_at&limit=20&offset=0&status=all
