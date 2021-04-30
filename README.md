@@ -346,7 +346,7 @@ This API is used to replace the wrong or the missing extracted data value with t
    approved_value: "3.8750"   
 }
 ```
-**Document Feedback API: http://areal.ai/api/v1/extracted_data/extracted-data-uuid/**
+**Document Feedback API: http://areal.ai/api/v1/document/document-uuid/**
 
 Request Method: **PATCH**.
 
