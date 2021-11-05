@@ -242,7 +242,7 @@ The Webhook paylod will include the following information:
 
 ```
 [
-    {"session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
+    {"upload_session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
      "session_name": “Loan #12345”, 
      "created_by": "username", 
      "created_at": "2021-11-01 00:00:46", 
