@@ -205,6 +205,32 @@ In the case of data extraction, the API response will return a list of **extract
 }
 ```
 
+## Async API Call
+
+**Async API Call: https://areal.ai/api/v1/ocr/?async_proc=1**
+
+Request Method: **POST**.
+
+Areal.ai supports asynchronous API calls for document processing. In order to make an Async API call, the Post request should be made to the document processing endpoint with "async_proc" parameter set to 1. The following shows the required URL for the Async API call.
+
+https://areal.ai/api/v1/ocr/?async_proc=1
+
+The response to an Async API call is like the following:
+
+'''
+{
+    "in_progress": true,
+    "results": [],
+    "session_url": "https://areal.ai/documents/sessions/aaaa1111-bbbb-cccc-dddd-eeee22224444",
+    "upload_session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444"
+}
+'''
+
+The "session_url" provided in this response can be presented within 3rd party software solutions to allow users to quickly locate the processed documents in Areal.ai Platform.
+
+The "upload_session_uuid" can be used to programmatically pull the results of the document processing session. Please check the "Sessions, Search and Get Sessions" section below for more information.
+
+
 ## Get Documents
 
 **Document API: https://areal.ai/api/v1/document/**
