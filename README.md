@@ -206,7 +206,7 @@ In the case of data extraction, the API response will return a list of **extract
 ```
 
 
-## Async API Call
+## Async API Call 
 
 **Async API Call: https://areal.ai/api/v1/ocr/?async_proc=1**
 
@@ -218,7 +218,7 @@ Areal.ai supports asynchronous API calls for document processing. In order to ma
 https://areal.ai/api/v1/ocr/?async_proc=1
 ```
 
-The response to an Async API call is like the following:
+Async API call response will be like the following:
 
 ```
 {
@@ -232,6 +232,28 @@ The response to an Async API call is like the following:
 The "session_url" provided in this response can be presented within 3rd party software solutions to allow users to quickly locate the processed documents in Areal.ai Platform.
 
 The "upload_session_uuid" can be used to programmatically pull the results of the document processing session. Please check the "Sessions, Search and Get Sessions" section below for more information.
+
+
+## Webhooks
+
+Areal.ai also supports Webhooks. In order to activate a webhook, URL address of an active endpoint should be provided to the Areal.ai team. Please make sure that the provided URL address is not blocked for HTTPS calls coming from the Areal.ai servers. 
+
+The Webhook paylod will include the following information:
+
+```
+[
+    {"session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
+     "session_name": “Loan #12345”, 
+     "created_by": "username", 
+     "created_at": "2021-11-01 00:00:46", 
+     "sent_at": "2021-11-01 00:00:47", 
+     "description": "New session has been created"}
+]
+```
+
+The "upload_session_uuid" can be used to programmatically pull the results of the document processing session. Please check the "Sessions, Search and Get Sessions" section below for more information.
+
+For additional quesitons, please contact the Areal.ai Team.
 
 
 
