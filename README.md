@@ -238,7 +238,7 @@ The "upload_session_uuid" can be used to programmatically pull the results of th
 
 Areal.ai also supports Webhooks. In order to activate a webhook, URL address of an active endpoint should be provided to the Areal.ai team. Please make sure that the provided URL address is not blocked for HTTPS calls coming from the Areal.ai servers. 
 
-The Webhook paylod will include the following information:
+The Webhook payload will include the following information:
 
 ```
 [
