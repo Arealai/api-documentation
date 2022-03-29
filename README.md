@@ -241,14 +241,14 @@ Areal.ai also supports Webhooks. In order to activate a webhook, URL address of 
 The Webhook payload will include the following information:
 
 ```
-[
-    {"upload_session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
-     "session_name": “Loan #12345”, 
-     "created_by": "username", 
-     "created_at": "2021-11-01 00:00:46", 
-     "sent_at": "2021-11-01 00:00:47", 
-     "description": "New session has been created"}
-]
+{
+    "upload_session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
+    "session_name": "Loan #12345", 
+    "created_by": "username", 
+    "created_at": "2021-11-01 00:00:46", 
+    "sent_at": "2021-11-01 00:00:47", 
+    "description": "New session has been created"
+}
 ```
 
 The "upload_session_uuid" can be used to programmatically pull the results of the document processing session. Please check the "Sessions, Search and Get Sessions" section below for more information.
