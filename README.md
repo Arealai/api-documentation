@@ -263,8 +263,8 @@ Sample B:
         "session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
         "session_name": "Loan #12345", 
         "created_by": "username", 
-        "description": "New document has been processed", 
-        "sent_at": "2021-11-01 00:01:40", 
+        "sent_at": "2021-11-01 00:01:40",
+        "description": "New document has been processed",  
         "documents": [{
                 "doc_id": "baaa0911-ebbb-eccc-dddd-aaaa33331111", 
                 "file_name": "123345_Unclassified.pdf", 
