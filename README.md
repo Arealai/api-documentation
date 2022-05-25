@@ -236,18 +236,47 @@ The "upload_session_uuid" can be used to programmatically pull the results of th
 
 ## Webhooks
 
-Areal.ai also supports Webhooks. In order to activate a webhook, URL address of an active endpoint should be provided to the Areal.ai team. Please make sure that the provided URL address is not blocked for HTTPS calls coming from the Areal.ai servers. 
+Areal.ai also supports Webhooks. In order to activate a Webhook, URL address of an active endpoint should be provided to the Areal.ai team. Please make sure that the provided URL address is not blocked for HTTPS calls coming from the Areal.ai servers. 
 
-The Webhook payload will include the following information:
+The Webhook payload will include the following information in different case:
 
+A notification JSON (Sample A) will be sent when a new Session/Loan is created, this is just for the reference and does not mean that document(s) are processed yet (they might be still in progress) so a separate notification with document details will be sent when all document(s) are finished processing within the session (Sample B). "documents" array briefly contains new extracted documents information from the original file.
+
+Sample A:
 ```
 {
-    "upload_session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
-    "session_name": "Loan #12345", 
-    "created_by": "username", 
-    "created_at": "2021-11-01 00:00:46", 
-    "sent_at": "2021-11-01 00:00:47", 
-    "description": "New session has been created"
+   "notification": {
+        "upload_session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
+        "session_name": "Loan #12345", 
+        "created_by": "username", 
+        "created_at": "2022-01-04 00:00:46", 
+        "sent_at": "2022-01-04 00:00:47", 
+        "description": "New session has been created"
+    }
+}
+```
+
+Sample B:
+```
+{
+    "notification": {
+        "session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
+        "session_name": "Loan #12345", 
+        "created_by": "username", 
+        "description": "New document has been processed", 
+        "sent_at": "2021-11-01 00:01:40", 
+        "documents": [{
+                "doc_id": "baaa0911-ebbb-eccc-dddd-aaaa33331111", 
+                "file_name": "123345_Unclassified.pdf", 
+                "created_at": "2022-01-04 00:02:05"
+            }, {
+                "doc_id": "caaa1211-abbb-dccc-dddd-123400996677", 
+                "file_name": "34567_Title.pdf", 
+                "created_at": "2022-01-04 00:02:26"
+            }, 
+            {...}
+        ]
+    }
 }
 ```
 
