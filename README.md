@@ -238,15 +238,17 @@ The "upload_session_uuid" can be used to programmatically pull the results of th
 
 Areal.ai also supports Webhooks. In order to activate a Webhook, URL address of an active endpoint should be provided to the Areal.ai team. Please make sure that the provided URL address is not blocked for HTTPS calls coming from the Areal.ai servers. 
 
-The Webhook payload will include the following information in different case:
+The Webhook payload will include different information for different cases. Currently, there are 2 different payloads.
 
-A notification JSON (Sample A) will be sent when a new Session/Loan is created, this is just for the reference and does not mean that document(s) are processed yet (they might be still in progress) so a separate notification with document details will be sent when all document(s) are finished processing within the session (Sample B). "documents" array briefly contains new extracted documents information from the original file.
+**First Notification: Session is Created.**
 
-Sample A:
+A notification with JSON payload will be sent when a new Session/Loan is created, this is just for the reference and does not mean that document(s) are processed yet (which might be still getting processed.) A separate notification with 'document' details will be sent when all document(s) are processed within this Session.
+
+Payload:
 ```
 {
    "notification": {
-        "session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
+        "upload_session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
         "session_name": "Loan #12345", 
         "created_by": "username", 
         "created_at": "2022-01-04 00:00:46", 
@@ -256,15 +258,19 @@ Sample A:
 }
 ```
 
-Sample B:
+**Second Notificaiton: Documents are Processed.**
+
+This notification is sent when the documents in this Session are processed. The "documents" array briefly contains all new documents created as a result of the processing of the original document. 
+
+Payload:
 ```
 {
     "notification": {
         "session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
         "session_name": "Loan #12345", 
         "created_by": "username", 
-        "sent_at": "2021-11-01 00:01:40",
-        "description": "New document has been processed",  
+        "description": "New document has been processed", 
+        "sent_at": "2021-11-01 00:01:40", 
         "documents": [{
                 "doc_id": "baaa0911-ebbb-eccc-dddd-aaaa33331111", 
                 "file_name": "123345_Unclassified.pdf", 
@@ -280,10 +286,9 @@ Sample B:
 }
 ```
 
-The "upload_session_uuid" can be used to programmatically pull the results of the document processing session. Please check the "Sessions, Search and Get Sessions" section below for more information.
+The "upload_session_uuid" can be used to programmatically pull the results of the document processing Session. Please check the "Sessions, Search and Get Sessions" section below for more information.
 
 For additional quesitons, please contact the Areal.ai Team.
-
 
 
 ## Get Documents
