@@ -217,7 +217,7 @@ Areal.ai supports asynchronous API calls for document processing. In order to ma
 ```
 https://areal.ai/api/v1/ocr/?async_proc=1
 ```
-
+ 
 Async API call response will be like the following:
 
 ```
