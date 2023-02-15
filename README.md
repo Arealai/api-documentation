@@ -155,8 +155,7 @@ In the case of data extraction, the API response will return a list of **compone
 
 Each Component Result will contain category, name, UUID and extracted_data keys. etracted_data key field will contain the details of the extracted data for that component. While *component* objects are assigned to *template* objects and are standard across all documents with the same template, *extracted_data* object will change from document to document since different data points will be extracted from document.
 
-The response currently contains also a list of **extracted_data**. **This extracted_data list will be deprecated by March 31, 2023. 
-**. Each extracted_data will contain a **component** object which defines the details of the data extracted. Extracted Data field contains the confidence_rate, processed_value (extracted data) and page fields.
+The response currently contains also a list of **extracted_data**. **The extracted_data list will be deprecated by March 31, 2023**. Each extracted_data will contain a **component** object which defines the details of the data extracted. Extracted Data field contains the confidence_rate, processed_value (extracted data) and page fields.
 
 ```
 [
