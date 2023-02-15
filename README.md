@@ -56,6 +56,13 @@ API calls must be authenticated in the headers. To be able to authorize, constru
 
 Customer Account ID is the username procvided and the Customer Key is the API Key provided. If you do not have a key yet, please contact team@areal.ai.
 
+## Organization Specific URLs
+
+If your organization is provided with a specific Areal.ai url such as "acme.areal.ai", then you need to make all API calls to that specific URL such as:
+
+```
+response = requests.post('https://acme.areal.ai/api/v1/ocr/', headers=headers, json=data)
+```
 
 ## Document Classification API
 
