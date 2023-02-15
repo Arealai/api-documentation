@@ -151,65 +151,144 @@ Request Method: **POST**.
 
 Data extraction API is the same API as the Document Classification API. There is no need to make separate API calls to both classify and extract data from a document. Data extraction will automatically take place once a document is classified (when a template is assigned to a document) IF data extraction is provisioned for that specific template in your organization. 
 
-In the case of data extraction, the API response will return a list of **extracted_data**. Each extracted_data will contain a **component** object which defines the details of the data extracted. Extracted Data field will also contain the confidence_rate, processed_value (extracted data) and page fields. While *component* objects are assigned to *template* objects and are standard across all documents with the same template, *extracted_data* object will change from document to document since different data points will be extracted from document.
+In the case of data extraction, the API response will return a list of **component_results**. 
+
+Each Component Result will contain category, name, UUID and extracted_data keys. etracted_data key field will contain the details of the extracted data for that component. While *component* objects are assigned to *template* objects and are standard across all documents with the same template, *extracted_data* object will change from document to document since different data points will be extracted from document.
+
+The response currently contains also a list of **extracted_data**. **This extracted_data list will be deprecated by March 31, 2023. 
+**. Each extracted_data will contain a **component** object which defines the details of the data extracted. Extracted Data field contains the confidence_rate, processed_value (extracted data) and page fields.
 
 ```
-{
-    "results": [
-        {
-            "document_uuid": "d0d2e07a-1da4-4aec-97ff-5edeb2018ded",
-            "extracted_data": [
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "Wages",
-                        "uuid": "9b1153e0-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "50,000.00",
-                    "uuid": "8ebfaca6-ddca-476a-ba66-ab51eb2fc667"
+[
+    {
+        "document_name": "W2_1_Borrower-W2.pdf",
+        "document_uuid": "1df9bdbd-dddd-bbbb-bfe6-a85870ad998f",
+        "component_results": [
+            {
+                "category": "text",
+                "extracted_data": [
+                    {
+                        "approved_value": "1545-0008",
+                        "confidence_rate": 0.9711745381355286,
+                        "grouped_data": [],
+                        "height_percent": 0.005555555555555556,
+                        "page": 0,
+                        "processed_value": "1545-0008",
+                        "uuid": "c569e403-b7c2-4056-81ea-9fed428064a9",
+                        "width_percent": 0.055992141453831044,
+                        "x_percent": 0.5176817288801572,
+                        "y_percent": 0.32083333333333336
+                    }
+                ],
+                "name": "00 - OMD",
+                "uuid": "6eab0e40-aaaa-bbbb-cccc-1f1efd155a62"
+            },
+            {
+                "category": "text",
+                "extracted_data": [
+                    {
+                        "approved_value": "2017",
+                        "confidence_rate": 0.9711745381355286,
+                        "grouped_data": [],
+                        "height_percent": 0.022222222222222223,
+                        "page": 0,
+                        "processed_value": "2017",
+                        "uuid": "3e182053-ca70-4409-81af-f6b02ae2753a",
+                        "width_percent": 0.10805500982318271,
+                        "x_percent": 0.4351669941060904,
+                        "y_percent": 0.6673611111111111
+                    }
+                ],
+                "name": "00 - Year",
+                "uuid": "bb21fca0-aaaa-bbbb-cccc-e5e69c6c59af"
+            },
+            {
+                "category": "text",
+                "extracted_data": [
+                    {
+                        "approved_value": "123-45-6789",
+                        "confidence_rate": 0.9711745381355286,
+                        "grouped_data": [],
+                        "height_percent": 0.006944444444444444,
+                        "page": 0,
+                        "processed_value": "123-45-6789",
+                        "uuid": "e48b265a-4cde-4408-83d6-f7b227d8d4ed",
+                        "width_percent": 0.08644400785854617,
+                        "x_percent": 0.30353634577603145,
+                        "y_percent": 0.3229166666666667
+                    }
+                ],
+                "name": "00A - Employee SSN",
+                "uuid": "76d9a130-aaaa-bbbb-cccc-1f1efd155a62"
+            },
+            {
+                "category": "text",
+                "extracted_data": [
+                    {
+                        "approved_value": "Jane A. Doe",
+                        "confidence_rate": 0.9711745381355286,
+                        "grouped_data": [],
+                        "height_percent": 0.008333333333333333,
+                        "page": 0,
+                        "processed_value": "Jane A. Doe",
+                        "uuid": "82533e77-e466-4d80-b779-e950fae19b9e",
+                        "width_percent": 0.0825147347740668,
+                        "x_percent": 0.21905697445972494,
+                        "y_percent": 0.5076388888888889
+                    }
+                ],
+                "name": "00B - Employee Name",
+                "uuid": "413007d5-aaaa-bbbb-cccc-bc0e9ae59d65"
+            }
+        ],
+        "extracted_data": [
+            {
+                "component": {
+                    "category": "text",
+                    "name": "00 - OMD",
+                    "uuid": "6eab0e40-aaaa-bbbb-cccc-1f1efd155a62"
                 },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "Name",
-                        "uuid": "cd08decf-e179-47da-b6bb-0bc45c8efa85"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "",
-                    "uuid": "c3ae929e-9d2b-42ea-93ac-3203775eec02"
+                "confidence_rate": 0.97,
+                "page": 0,
+                "processed_value": "1545-0008",
+                "uuid": "c569e403-b7c2-4056-81ea-9fed428064a9"
+            },
+            {
+                "component": {
+                    "category": "text",
+                    "name": "00 - Year",
+                    "uuid": "bb21fca0-aaaa-bbbb-cccc-e5e69c6c59af"
                 },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "State",
-                        "uuid": "ffcfe2b0-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "PA",
-                    "uuid": "c8e69635-6b2e-4b0a-adca-d18707a2a96c"
+                "confidence_rate": 0.97,
+                "page": 0,
+                "processed_value": "2017",
+                "uuid": "3e182053-ca70-4409-81af-f6b02ae2753a"
+            },
+            {
+                "component": {
+                    "category": "text",
+                    "name": "00A - Employee SSN",
+                    "uuid": "76d9a130-aaaa-bbbb-cccc-1f1efd155a62"
                 },
-                {
-                    "component": {
-                        "category": "integer",
-                        "name": "Year",
-                        "uuid": "bb21fca0-f74d-11e9-8b38-e5e69c6c59af"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "2017",
-                    "uuid": "e53a693b-2c41-4da5-8776-e86af6620d14"
-                }
-            ],
-            "processing_time_ms": 2721,
-            "template_uuid": "4e0550c2-ecbf-40d4-bdf0-2f9de24b525f"
-        }
-    ],
-    "upload_session_uuid": "6d1cd890-85f9-11eb-9ba8-614f814eb3d6"
-}
+                "confidence_rate": 0.97,
+                "page": 0,
+                "processed_value": "123-45-6789",
+                "uuid": "e48b265a-4cde-4408-83d6-f7b227d8d4ed"
+            },
+            {
+                "component": {
+                    "category": "text",
+                    "name": "00B - Employee Name",
+                    "uuid": "413007d5-aaaa-bbbb-cccc-bc0e9ae59d65"
+                },
+                "confidence_rate": 0.97,
+                "page": 0,
+                "processed_value": "Jane A. Doe",
+                "uuid": "82533e77-e466-4d80-b779-e950fae19b9e"
+            }
+        ]
+    }
+]
 ```
 
 
@@ -456,192 +535,570 @@ The status key-value pair above should be added to this request.
 ## Sample Response
 
 ```
-{
-    "results": [
-        {
-            "document_uuid": "d0d2e07a-1da4-4aec-97ff-5edeb2018ded",
-            "extracted_data": [
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "1 Wages",
-                        "uuid": "9b1153e0-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "50,000.00",
-                    "uuid": "8ebfaca6-ddca-476a-ba66-ab51eb2fc667"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "12a Box",
-                        "uuid": "cd08decf-e179-47da-b6bb-0bc45c8efa85"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "",
-                    "uuid": "c3ae929e-9d2b-42ea-93ac-3203775eec02"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "15 State",
-                        "uuid": "ffcfe2b0-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "PA",
-                    "uuid": "c8e69635-6b2e-4b0a-adca-d18707a2a96c"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "16 State Wages",
-                        "uuid": "0c0075e0-e301-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "50,000.00",
-                    "uuid": "04ecde10-41c9-4c73-b326-247bcf68f9ed"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "17 State Tax",
-                        "uuid": "16f024a0-e301-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "1,535.00",
-                    "uuid": "d6c3c82a-1b99-40d0-a47b-0a03ae2e2de2"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "2 Federal",
-                        "uuid": "a4e77c50-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "6,835.00",
-                    "uuid": "7811ca28-1ced-4555-8403-293ef851f96f"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "3 Ss Wages",
-                        "uuid": "abcc2a20-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "50,000.00",
-                    "uuid": "c765bf79-840c-4883-bc3a-dd399ef8d495"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "4 Ss Tax",
-                        "uuid": "b0ca8bc0-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "3,100.00",
-                    "uuid": "c531b860-7f9b-4c59-b260-5e24b423cd3f"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "5 Medicare Wages",
-                        "uuid": "ca43fff0-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "50,000.00",
-                    "uuid": "8feb5dd0-d7f9-4c92-a9c7-e2468affa03e"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "6 Medicare Tax",
-                        "uuid": "d0fcbbc0-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "725.00",
-                    "uuid": "c63ca21b-6354-42f4-a4ca-1a895ce91da0"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "Employee Contact",
-                        "uuid": "861132d0-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "Jane A. Doe 123 Elm Street Anywhere Else, PA 17111",
-                    "uuid": "b4c198b1-d8a4-4ffc-9e02-58b3f3f7abe5"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "Employee Ssn",
-                        "uuid": "76d9a130-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "123-45-6789",
-                    "uuid": "b49f3356-972c-4404-8248-18110a4bf142"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "Employer Contact",
-                        "uuid": "94b81d30-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "The Big Company 12 Main Street Anywhere, NC 28111",
-                    "uuid": "8c8be14b-8e26-425f-898e-1a1ac848ef44"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "Employer Ein",
-                        "uuid": "7c16b980-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "55-5765489",
-                    "uuid": "54a0d310-8fed-4084-8a7a-815036748868"
-                },
-                {
-                    "component": {
-                        "category": "text",
-                        "name": "Omb",
-                        "uuid": "6eab0e40-e300-11e9-93dd-1f1efd155a62"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "1545-0008",
-                    "uuid": "6fb43074-d56c-4186-9ae0-da2f9f1bf73f"
-                },
-                {
-                    "component": {
-                        "category": "integer",
-                        "name": "Year",
-                        "uuid": "bb21fca0-f74d-11e9-8b38-e5e69c6c59af"
-                    },
-                    "confidence_rate": 0.97,
-                    "page": 0,
-                    "processed_value": "2017",
-                    "uuid": "e53a693b-2c41-4da5-8776-e86af6620d14"
-                }
-            ],
-            "processing_time_ms": 2721,
-            "template_uuid": "4e0550c2-ecbf-40d4-bdf0-2f9de24b525f"
-        }
+[
+  {
+    "component_results": [
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "1545-0008",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.005555555555555556,
+            "page": 0,
+            "processed_value": "1545-0008",
+            "uuid": "c569e403-b7c2-4056-81ea-9fed428064a9",
+            "width_percent": 0.055992141453831044,
+            "x_percent": 0.5176817288801572,
+            "y_percent": 0.32083333333333336
+          }
+        ],
+        "name": "00 - OMD",
+        "uuid": "6eab0e40-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "2017",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.022222222222222223,
+            "page": 0,
+            "processed_value": "2017",
+            "uuid": "3e182053-ca70-4409-81af-f6b02ae2753a",
+            "width_percent": 0.10805500982318271,
+            "x_percent": 0.4351669941060904,
+            "y_percent": 0.6673611111111111
+          }
+        ],
+        "name": "00 - Year",
+        "uuid": "bb21fca0-f74d-11e9-8b38-e5e69c6c59af"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "123-45-6789",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.006944444444444444,
+            "page": 0,
+            "processed_value": "123-45-6789",
+            "uuid": "e48b265a-4cde-4408-83d6-f7b227d8d4ed",
+            "width_percent": 0.08644400785854617,
+            "x_percent": 0.30353634577603145,
+            "y_percent": 0.3229166666666667
+          }
+        ],
+        "name": "00A - Employee SSN",
+        "uuid": "76d9a130-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "Jane A. Doe",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.008333333333333333,
+            "page": 0,
+            "processed_value": "Jane A. Doe",
+            "uuid": "82533e77-e466-4d80-b779-e950fae19b9e",
+            "width_percent": 0.0825147347740668,
+            "x_percent": 0.21905697445972494,
+            "y_percent": 0.5076388888888889
+          }
+        ],
+        "name": "00B - Employee Name",
+        "uuid": "413007d5-57d3-4cf8-97ad-bc0e9ae59d65"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "123 Elm Street Anywhere Else, PA 17111",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.022222222222222223,
+            "page": 0,
+            "processed_value": "123 Elm Street Anywhere Else, PA 17111",
+            "uuid": "3bdbd22f-55e6-42d5-82d9-2018199d8a9c",
+            "width_percent": 0.17288801571709234,
+            "x_percent": 0.1738703339882122,
+            "y_percent": 0.5201388888888889
+          }
+        ],
+        "name": "00C - Employee Address",
+        "uuid": "861132d0-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0,
+            "page": 0,
+            "processed_value": "",
+            "uuid": "d52ffc8d-ec51-44e1-9d0d-4da89a3ae10f",
+            "width_percent": 0,
+            "x_percent": 0,
+            "y_percent": 0
+          }
+        ],
+        "name": "00D - Employer TIN",
+        "uuid": "7c16b980-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "The Big Company",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.010416666666666666,
+            "page": 0,
+            "processed_value": "The Big Company",
+            "uuid": "5d8bdf55-c37a-4651-b935-43f1c8c71cdb",
+            "width_percent": 0.1237721021611002,
+            "x_percent": 0.20923379174852652,
+            "y_percent": 0.38680555555555557
+          }
+        ],
+        "name": "00E - Employer Name",
+        "uuid": "30a5303d-5773-4ff0-8b0b-445bcbcee24b"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "12 Main Street Anywhere, NC 28111",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.022916666666666665,
+            "page": 0,
+            "processed_value": "12 Main Street Anywhere, NC 28111",
+            "uuid": "1efbf7ef-f8ce-479a-8b4b-2377c7cadfc7",
+            "width_percent": 0.14047151277013753,
+            "x_percent": 0.19842829076620824,
+            "y_percent": 0.3993055555555556
+          }
+        ],
+        "name": "00F - Employer Address",
+        "uuid": "94b81d30-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "50,000.00",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.008333333333333333,
+            "page": 0,
+            "processed_value": "50,000.00",
+            "uuid": "b71da0a6-a09c-41e2-bd27-044f3f097969",
+            "width_percent": 0.06777996070726916,
+            "x_percent": 0.34577603143418467,
+            "y_percent": 0.61875
+          }
+        ],
+        "name": "01 - Wages",
+        "uuid": "9b1153e0-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "6,835.00",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.006944444444444444,
+            "page": 0,
+            "processed_value": "6,835.00",
+            "uuid": "ce048185-2421-4ee7-8943-0409ed4c588d",
+            "width_percent": 0.05795677799607073,
+            "x_percent": 0.8005893909626719,
+            "y_percent": 0.3506944444444444
+          }
+        ],
+        "name": "02 - Federal",
+        "uuid": "a4e77c50-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "50,000.00",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.008333333333333333,
+            "page": 0,
+            "processed_value": "50,000.00",
+            "uuid": "be6c2c6e-8c3a-4db0-8bda-df44a5c29727",
+            "width_percent": 0.06679764243614932,
+            "x_percent": 0.5972495088408645,
+            "y_percent": 0.3798611111111111
+          }
+        ],
+        "name": "03 - SS Wages",
+        "uuid": "abcc2a20-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "3,100.00",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.006944444444444444,
+            "page": 0,
+            "processed_value": "3,100.00",
+            "uuid": "01cd34dc-127f-43ce-8fa7-1b42b818ec26",
+            "width_percent": 0.05893909626719057,
+            "x_percent": 0.8005893909626719,
+            "y_percent": 0.3798611111111111
+          }
+        ],
+        "name": "04 - SS Tax",
+        "uuid": "b0ca8bc0-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "50,000.00",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.009027777777777777,
+            "page": 0,
+            "processed_value": "50,000.00",
+            "uuid": "12513257-b679-4d93-9d9f-09afd0f6ca31",
+            "width_percent": 0.06581532416502947,
+            "x_percent": 0.5972495088408645,
+            "y_percent": 0.40694444444444444
+          }
+        ],
+        "name": "05 - Medicare Wages",
+        "uuid": "ca43fff0-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "725.00",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.007638888888888889,
+            "page": 0,
+            "processed_value": "725.00",
+            "uuid": "39865b67-4761-472f-93c5-c078ee94d276",
+            "width_percent": 0.047151277013752456,
+            "x_percent": 0.806483300589391,
+            "y_percent": 0.4083333333333333
+          }
+        ],
+        "name": "06 - Medicare Tax",
+        "uuid": "d0fcbbc0-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0,
+            "page": 0,
+            "processed_value": "",
+            "uuid": "dd40e782-043d-483b-b58b-ba25ca866d69",
+            "width_percent": 0,
+            "x_percent": 0,
+            "y_percent": 0
+          }
+        ],
+        "name": "12a Box",
+        "uuid": "cd08decf-e179-47da-b6bb-0bc45c8efa85"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "PA",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.009027777777777777,
+            "page": 0,
+            "processed_value": "PA",
+            "uuid": "9e02a065-1c2c-4314-95ca-3f796703783e",
+            "width_percent": 0.018664047151277015,
+            "x_percent": 0.060903732809430254,
+            "y_percent": 0.6194444444444445
+          }
+        ],
+        "name": "15 State",
+        "uuid": "ffcfe2b0-e300-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "50,000.00",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.008333333333333333,
+            "page": 0,
+            "processed_value": "50,000.00",
+            "uuid": "0922bf86-2095-44b7-b20e-bc8f008ebcdc",
+            "width_percent": 0.06777996070726916,
+            "x_percent": 0.34577603143418467,
+            "y_percent": 0.61875
+          }
+        ],
+        "name": "16 State Wages",
+        "uuid": "0c0075e0-e301-11e9-93dd-1f1efd155a62"
+      },
+      {
+        "category": "text",
+        "extracted_data": [
+          {
+            "approved_value": "1,535.00",
+            "confidence_rate": 0.9711745381355286,
+            "grouped_data": [],
+            "height_percent": 0.006944444444444444,
+            "page": 0,
+            "processed_value": "1,535.00",
+            "uuid": "40cc2b53-1aeb-48f1-a6f4-41e7338681d4",
+            "width_percent": 0.05795677799607073,
+            "x_percent": 0.48821218074656186,
+            "y_percent": 0.6194444444444445
+          }
+        ],
+        "name": "17 State Tax",
+        "uuid": "16f024a0-e301-11e9-93dd-1f1efd155a62"
+      }
     ],
-    "upload_session_uuid": "6d1cd890-85f9-11eb-9ba8-614f814eb3d6"
-}
+    "data": {
+      "document": {
+        "created_at": "2023-02-15 18:30:12.904496",
+        "download_urls": {
+          "doc_url": "",
+          "thumb_url": ""
+        },
+        "page_count": 1,
+        "status": "draft",
+        "updated_at": "2023-02-15 18:30:12.904517",
+        "upload_session": "02209a41-49c3-42f8-a2d8-516be2c914ae"
+      }
+    },
+    "document_name": "W2_1_Borrower-W2.pdf",
+    "document_uuid": "1df9bdbd-b1b1-4cf2-bfe6-a85870ad998f",
+    "extracted_data": [
+      {
+        "component": {
+          "category": "text",
+          "name": "00 - OMD",
+          "uuid": "6eab0e40-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "1545-0008",
+        "uuid": "c569e403-b7c2-4056-81ea-9fed428064a9"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "00 - Year",
+          "uuid": "bb21fca0-f74d-11e9-8b38-e5e69c6c59af"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "2017",
+        "uuid": "3e182053-ca70-4409-81af-f6b02ae2753a"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "00A - Employee SSN",
+          "uuid": "76d9a130-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "123-45-6789",
+        "uuid": "e48b265a-4cde-4408-83d6-f7b227d8d4ed"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "00B - Employee Name",
+          "uuid": "413007d5-57d3-4cf8-97ad-bc0e9ae59d65"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "Jane A. Doe",
+        "uuid": "82533e77-e466-4d80-b779-e950fae19b9e"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "00C - Employee Address",
+          "uuid": "861132d0-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "123 Elm Street Anywhere Else, PA 17111",
+        "uuid": "3bdbd22f-55e6-42d5-82d9-2018199d8a9c"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "00D - Employer TIN",
+          "uuid": "7c16b980-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "",
+        "uuid": "d52ffc8d-ec51-44e1-9d0d-4da89a3ae10f"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "00E - Employer Name",
+          "uuid": "30a5303d-5773-4ff0-8b0b-445bcbcee24b"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "The Big Company",
+        "uuid": "5d8bdf55-c37a-4651-b935-43f1c8c71cdb"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "00F - Employer Address",
+          "uuid": "94b81d30-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "12 Main Street Anywhere, NC 28111",
+        "uuid": "1efbf7ef-f8ce-479a-8b4b-2377c7cadfc7"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "01 - Wages",
+          "uuid": "9b1153e0-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "50,000.00",
+        "uuid": "b71da0a6-a09c-41e2-bd27-044f3f097969"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "02 - Federal",
+          "uuid": "a4e77c50-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "6,835.00",
+        "uuid": "ce048185-2421-4ee7-8943-0409ed4c588d"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "03 - SS Wages",
+          "uuid": "abcc2a20-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "50,000.00",
+        "uuid": "be6c2c6e-8c3a-4db0-8bda-df44a5c29727"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "04 - SS Tax",
+          "uuid": "b0ca8bc0-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "3,100.00",
+        "uuid": "01cd34dc-127f-43ce-8fa7-1b42b818ec26"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "05 - Medicare Wages",
+          "uuid": "ca43fff0-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "50,000.00",
+        "uuid": "12513257-b679-4d93-9d9f-09afd0f6ca31"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "06 - Medicare Tax",
+          "uuid": "d0fcbbc0-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "725.00",
+        "uuid": "39865b67-4761-472f-93c5-c078ee94d276"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "12a Box",
+          "uuid": "cd08decf-e179-47da-b6bb-0bc45c8efa85"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "",
+        "uuid": "dd40e782-043d-483b-b58b-ba25ca866d69"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "15 State",
+          "uuid": "ffcfe2b0-e300-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "PA",
+        "uuid": "9e02a065-1c2c-4314-95ca-3f796703783e"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "16 State Wages",
+          "uuid": "0c0075e0-e301-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "50,000.00",
+        "uuid": "0922bf86-2095-44b7-b20e-bc8f008ebcdc"
+      },
+      {
+        "component": {
+          "category": "text",
+          "name": "17 State Tax",
+          "uuid": "16f024a0-e301-11e9-93dd-1f1efd155a62"
+        },
+        "confidence_rate": 0.97,
+        "page": 0,
+        "processed_value": "1,535.00",
+        "uuid": "40cc2b53-1aeb-48f1-a6f4-41e7338681d4"
+      }
+    ],
+    "processing_time_ms": 2792,
+    "template_name": "",
+    "template_uuid": "4e0550c2-dddd-bbbb-aaaa-2f9de24b525f"
+  }
+]
 ```
