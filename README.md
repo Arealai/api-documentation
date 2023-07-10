@@ -290,6 +290,46 @@ The response currently contains also a list of **extracted_data**. **The extract
 ]
 ```
 
+## Annotation API (Beta)
+
+Areal.ai can also detect areas to be annotationed in a document. Areal.ai currently finds areas to be signed, initialized or sealed in a document. The API call to get the annotations is exactly same as the API call to classify/extract a document. 
+
+Annotation API currently supports the following entities:
+
+1- Borrower(s)(Multiple Entities)
+2- Notary (Single Entity)
+3- Settlement Agent (Single Entity)
+4- Witness (Single Entity)
+5- Acknowledgment Party (Single Entity)
+
+In order to get access to our newest functionality to find annotations in a document, please contract your Areal.ai administrator. 
+
+
+## Loan Info Meta (Beta)
+
+Developers can provide additional meta data while making an API call to Areal. For example, if you would like to provide the Borrower's Name information, this information could be added to the Body section of the API call. In this case, this information should be mapped to the "borrower" key within the "loan_info" dictionary of the API Body. For example:
+
+```
+{
+  "name":"Annotation_doc.pdf",
+  "loan_info":{"borrower":"Michael Curtis"},
+  "image":"data:application/pdf;base64,JVBERi0x...
+}
+```
+
+While the "loan_info" section within the Body of an API call provides tons of flexibility, Areal currently supports the following keys in a "loan_info" dictionary:
+
+1- borrower
+2- coborrower_1
+3- coborrower_2
+4- coborrower_3
+5- notary
+6- settlement_agent
+7- witness
+8- acknowledgment_party
+
+Please contact your administrator for more information.
+
 
 ## Async API Call 
 
@@ -317,7 +357,6 @@ Async API call response will be like the following:
 The "session_url" provided in this response can be presented within 3rd party software solutions to allow users to quickly locate the processed documents in Areal.ai Platform.
 
 The "upload_session_uuid" can be used to programmatically pull the results of the document processing session. Please check the "Sessions, Search and Get Sessions" section below for more information.
-
 
 ## Webhooks
 
