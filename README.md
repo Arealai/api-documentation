@@ -296,11 +296,11 @@ Areal.ai can also detect areas to be annotationed in a document. Areal.ai curren
 
 Annotation API currently supports the following entities:
 
-1- Borrower(s)(Multiple Entities)
-2- Notary (Single Entity)
-3- Settlement Agent (Single Entity)
-4- Witness (Single Entity)
-5- Acknowledgment Party (Single Entity)
+- Borrower(s)(Multiple Entities)
+- Notary (Single Entity)
+- Settlement Agent (Single Entity)
+- Witness (Single Entity)
+- Acknowledgment Party (Single Entity)
 
 In order to get access to our newest functionality to find annotations in a document, please contract your Areal.ai administrator. 
 
@@ -319,14 +319,14 @@ Developers can provide additional meta data while making an API call to Areal. F
 
 While the "loan_info" section within the Body of an API call provides tons of flexibility, Areal currently supports the following keys in a "loan_info" dictionary:
 
-1- borrower
-2- coborrower_1
-3- coborrower_2
-4- coborrower_3
-5- notary
-6- settlement_agent
-7- witness
-8- acknowledgment_party
+- borrower
+- coborrower_1
+- coborrower_2
+- coborrower_3
+- notary
+- settlement_agent
+- witness
+- acknowledgment_party
 
 Please contact your administrator for more information.
 
