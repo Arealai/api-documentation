@@ -373,7 +373,7 @@ The "upload_session_uuid" can be used to programmatically pull the results of th
 
 ## Webhooks
 
-Areal.ai also supports Webhooks. In order to activate a Webhook, URL address of an active endpoint should be provided to the Areal.ai team. Please make sure that the provided URL address is not blocked for HTTPS calls coming from the Areal.ai servers. 
+Areal.ai also supports Webhooks (GET requests only). In order to activate a Webhook, URL address of an active endpoint should be provided to the Areal.ai team. Please make sure that the provided URL address is not blocked for HTTPS calls coming from the Areal.ai servers. 
 
 The Webhook payload will include different information for different cases. Currently, there are 2 different payloads.
 
@@ -395,7 +395,7 @@ Payload:
 }
 ```
 
-**Second Notificaiton: Documents are Processed.**
+**Second Notification: Documents are Processed.**
 
 This notification is sent when the documents in this Session are processed. The "documents" array briefly contains all new documents created as a result of the processing of the original document. 
 
@@ -411,10 +411,20 @@ Payload:
         "documents": [{
                 "doc_id": "baaa0911-ebbb-eccc-dddd-aaaa33331111", 
                 "file_name": "123345_Unclassified.pdf", 
+                "loan_id": "loan_1233", 
+                "template_uuid": "{a GUID of template}", 
+                "elapsed_time": "{how much time this process spent in ms}", 
+                "num_pages": "3", 
+                "doc_url": "{a URL to download the doc, expires in 10 min}", 
                 "created_at": "2022-01-04 00:02:05"
             }, {
                 "doc_id": "caaa1211-abbb-dccc-dddd-123400996677", 
                 "file_name": "34567_Title.pdf", 
+                "loan_id": "loan_7890", 
+                "template_uuid": "{a GUID of template}", 
+                "elapsed_time": "{how much time this process spent in ms}", 
+                "num_pages": "5", 
+                "doc_url": "{a URL to download the doc, expires in 10 min}", 
                 "created_at": "2022-01-04 00:02:26"
             }, 
             {...}
