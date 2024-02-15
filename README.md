@@ -301,7 +301,7 @@ Annotation API currently supports the following entities:
 - Lender (Single Entity)
 - Loan Officer (Single Entity)
 - Notary (Single Entity)
-- Closing Agent (Single Entity)
+- Closing Agent / Settelement Agent (Single Entity) 
 - Witness (Single Entity)
 - Title Holder (Single Entity)
 - Acknowledgment Party (Single Entity)
