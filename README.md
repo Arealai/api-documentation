@@ -324,19 +324,16 @@ Developers can provide additional meta data while making an API call to Areal. F
 
 While the "loan_info" section within the Body of an API call provides tons of flexibility, Areal currently supports the following keys in a "loan_info" dictionary:
 
-- borrower
-- coborrower_1
-- coborrower_2
-- coborrower_3
-- seller
-- coseller_1
-- coseller_2
-- coseller_3
+- borrower_1
+- borrower_2
+- seller_1
+- seller_2
 - lender
 - loan_officer
 - notary
 - closing_agent
 - witness_1
+- witness_2
 - title_holder
 - acknowledgment_party
 - signer_1
