@@ -306,6 +306,7 @@ Annotation API currently supports the following entities:
 - Title Holder (Single Entity)
 - Cosigner (Single Entity)
 - Acknowledgment Party (Single Entity)
+- All Other Signers (Multiple Entities)
 
 In order to get access to our newest functionality to find annotations in a document, please contract your Areal.ai administrator. 
 
@@ -340,6 +341,9 @@ While the "loan_info" section within the Body of an API call provides tons of fl
 - title_holder
 - cosigner
 - acknowledgment_party
+- signer_1
+- signer_2
+- signer_N
 
 Please contact your administrator for more information.
 
