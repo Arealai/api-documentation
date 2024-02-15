@@ -304,7 +304,6 @@ Annotation API currently supports the following entities:
 - Closing Agent (Single Entity)
 - Witness (Single Entity)
 - Title Holder (Single Entity)
-- Cosigner (Single Entity)
 - Acknowledgment Party (Single Entity)
 - All Other Signers (Multiple Entities)
 
@@ -339,11 +338,12 @@ While the "loan_info" section within the Body of an API call provides tons of fl
 - closing_agent
 - witness_1
 - title_holder
-- cosigner
 - acknowledgment_party
 - signer_1
 - signer_2
 - signer_N
+
+Please note that "cosigner" is deprecated as "signer" field is now available.
 
 Please contact your administrator for more information.
 
