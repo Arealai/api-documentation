@@ -338,7 +338,7 @@ While the "loan_info" section within the Body of an API call provides tons of fl
 - acknowledgment_party
 - signer_1
 - signer_2
-- signer_N
+- signer_N (N is a single digit number)
 
 Please note that "cosigner" is deprecated as "signer" field is now available.
 
