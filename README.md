@@ -324,21 +324,18 @@ Developers can provide additional meta data while making an API call to Areal. F
 
 While the "loan_info" section within the Body of an API call provides tons of flexibility, Areal currently supports the following keys in a "loan_info" dictionary:
 
-- borrower_1
-- borrower_2
-- seller_1
-- seller_2
-- lender
-- loan_officer
-- notary
-- closing_agent
-- witness_1
-- witness_2
-- title_holder
-- acknowledgment_party
-- signer_1
-- signer_2
-- signer_N (N is a single digit number)
+- borrower (Type=Text)
+- coborrowers (Type=List/Array)
+- seller (Type=Text)
+- cosellers (Type=List/Array)
+- lender (Type=Text)
+- loan_officer (Type=Text)
+- notary (Type=Text)
+- closing_agent (Type=Text)
+- witnesses (Type=List/Array)
+- title_holder (Type=Text)
+- acknowledgment_party (Type=Text)
+- signers (Type=List/Array)
 
 Please note that "cosigner" is deprecated as "signer" field is now available.
 
