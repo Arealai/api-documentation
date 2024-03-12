@@ -373,7 +373,7 @@ The "upload_session_uuid" can be used to programmatically pull the results of th
 
 Areal.ai also supports Webhooks (GET requests only). In order to activate a Webhook, URL address of an active endpoint should be provided to the Areal.ai team. Please make sure that the provided URL address is not blocked for HTTPS calls coming from the Areal.ai servers. 
 
-The Webhook payload will include different information for different cases. Currently, there are 2 different payloads.
+The Webhook payload will include different information for different cases. Currently, there are 3 different payloads.
 
 **First Notification: Session is Created.**
 
@@ -383,6 +383,8 @@ Payload:
 ```
 {
    "notification": {
+        "success": true,
+        "process_id": "GUID of the process id",  
         "session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
         "session_name": "Loan #12345", 
         "created_by": "username", 
@@ -401,6 +403,8 @@ Payload:
 ```
 {
     "notification": {
+        "success": true,
+        "process_id": "GUID of the process id",  
         "session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
         "session_name": "Loan #12345", 
         "created_by": "username", 
@@ -427,6 +431,26 @@ Payload:
             }, 
             {...}
         ]
+    }
+}
+```
+
+**Third Notification: Proces Failed.**
+
+A notification with JSON payload will be sent when process fails due to an error.
+
+Payload:
+```
+{
+   "notification": {
+        "success": false,
+        "process_id": "GUID of the process id",  
+        "session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
+        "session_name": "Loan #12345", 
+        "created_by": "username", 
+        "created_at": "2022-01-04 00:00:46", 
+        "sent_at": "2022-01-04 00:00:47", 
+        "description": "Unable to process documents"
     }
 }
 ```
