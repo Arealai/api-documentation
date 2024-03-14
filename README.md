@@ -296,23 +296,16 @@ Areal.ai can also detect areas to be annotationed in a document. Areal.ai curren
 
 Annotation API currently supports the following entities:
 
-- Borrower(s) (Multiple Entities)
-- Seller(s) (Multiple Entities)
-- Lender (Single Entity)
-- Loan Officer (Single Entity)
+- Signers (Multiple Entities)
 - Notary (Single Entity)
-- Closing Agent / Settlement Agent (Single Entity) 
-- Witness (Single Entity)
-- Title Holder (Single Entity)
-- Acknowledgment Party (Single Entity)
-- All Other Signers (Multiple Entities)
+- Witnesses (Multiple Entities)
 
 In order to get access to our newest functionality to find annotations in a document, please contract your Areal.ai administrator. 
 
 
 ## Loan Info Meta (Beta)
 
-Developers can provide additional meta data while making an API call to Areal. For example, if you would like to provide the Borrower's Name information, this information could be added to the Body section of the API call. In this case, this information should be mapped to the "borrower" key within the "loan_info" dictionary of the API Body. For example:
+Developers can provide additional meta data while making an API call to Areal. For example, if you would like to provide the Borrower's Name information, this information could be added to the Body section of the API call. In this case, this information should be mapped to the "signers" key within the "loan_info" dictionary of the API Body. For example:
 
 ```
 {
@@ -328,20 +321,9 @@ Developers can provide additional meta data while making an API call to Areal. F
 
 While the "loan_info" section within the Body of an API call provides tons of flexibility, Areal currently supports the following keys in a "loan_info" dictionary:
 
-- borrower (Type=Text)
-- coborrowers (Type=List/Array)
-- seller (Type=Text)
-- cosellers (Type=List/Array)
-- lender (Type=Text)
-- loan_officer (Type=Text)
+- signers (Type=List)
 - notary (Type=Text)
-- closing_agent (Type=Text)
-- witnesses (Type=List/Array)
-- title_holder (Type=Text)
-- acknowledgment_party (Type=Text)
-- signers (Type=List/Array)
-
-Please note that "cosigner" is deprecated as "signer" field is now available.
+- witnesses (Type=List)
 
 Please contact your administrator for more information.
 
