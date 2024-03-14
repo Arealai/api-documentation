@@ -317,7 +317,11 @@ Developers can provide additional meta data while making an API call to Areal. F
 ```
 {
   "name":"Annotation_doc.pdf",
-  "loan_info":{"borrower":"Michael Curtis"},
+  "loan_info":{
+        "signers": ["BORROWER NAME",  "COBORROWER NAME", "SELLER NAME", "LENDER NAME"],
+        "notary":"", 
+        "witnesses": ["WITNESS NAME-1",  "WITNESS NAME-2"]
+   },
   "image":"data:application/pdf;base64,JVBERi0x...
 }
 ```
