@@ -290,6 +290,39 @@ The response currently contains also a list of **extracted_data**. **The extract
 ]
 ```
 
+## CD Balancer API
+
+**CD Balancer API: https://areal.ai/api/v1/ocr/?async_proc=0**
+
+Request Method: **POST**.
+
+CD Balancer API works in similar principal as the Data Extraction API. There is also no need to make separate API calls to both classify and extract data from a document. Difference is just the payload as descibed below.
+
+- {YOUR_FILE_BASE64} should be replaced with your file as Base64
+- file_name can be anything
+- file_tag must indicate the CD file is either a "user" or "lender" document
+- product_name should be "cd_balancer"
+- if upload_session_uuid is null, CD comparision will be creating a new session, if it's a GUID existing session will be used instead, this will help grouping the CD balancing attempts under the same session for easier access.
+
+```
+{
+    "files": [
+        {
+            "file_b64": "data:application/pdf;base64,{YOUR_FILE_BASE64}",
+            "file_name": "user_cd.pdf",
+            "file_tag": "user"
+        },
+        {
+            "file_b64": "data:application/pdf;base64,{YOUR_FILE_BASE64}",
+            "file_name": "lender_cd.pdf",
+            "file_tag": "lender"
+        }
+    ],
+    "product_name": "cd_balancer",
+    "upload_session_uuid": null
+}
+```
+
 ## Annotation API (Beta)
 
 Areal.ai can also detect areas to be annotationed in a document. Areal.ai currently finds areas to be signed, initialized or sealed in a document. The API call to get the annotations is exactly same as the API call to classify/extract a document. 
