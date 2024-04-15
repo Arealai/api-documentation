@@ -292,7 +292,7 @@ The response currently contains also a list of **extracted_data**. **The extract
 
 ## CD Balancer API
 
-**CD Balancer API: https://areal.ai/api/v1/ocr/?async_proc=0**
+**CD Balancer API: https://areal.ai/api/v1/ocr/?async_proc=1**
 
 Request Method: **POST**.
 
@@ -303,6 +303,7 @@ CD Balancer API works in similar principal as the Data Extraction API. There is 
 - file_tag must indicate the CD file is either a "user" or "lender" document
 - product_name should be "cd_balancer"
 - if upload_session_uuid is null, CD comparision will be creating a new session, if it's a GUID existing session will be used instead, this will help grouping the CD balancing attempts under the same session for easier access.
+- if using in async mode (async_proc=1) a WebHook notification will be dispatched including the CD result and UI preview URL for quick accesss, if org has WebHook enabled.
 
 ```
 {
