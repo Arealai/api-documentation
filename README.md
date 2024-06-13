@@ -417,7 +417,7 @@ Payload:
 
 **Second Notification: Documents are Processed.**
 
-This notification is sent when the documents in this Session are processed. The "documents" array briefly contains all new documents created as a result of the processing of the original document. 
+This notification is sent when the original document (uploaded document) is processed upon each request. The "documents" array briefly contains all new documents created as a result of the processing of the original document. 
 
 Payload:
 ```
