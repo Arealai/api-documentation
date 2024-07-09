@@ -339,7 +339,7 @@ In order to get access to our newest functionality to find annotations in a docu
 
 ## Loan Info Meta (Beta)
 
-Developers can provide additional meta data while making an API call to Areal. For example, if you would like to provide the Borrower's Name information, this information could be added to the Body section of the API call. In this case, this information should be mapped to the "signers" key within the "loan_info" dictionary of the API Body. For example:
+Developers can provide additional meta data while making an API call to Areal. For example, if you would like to provide the Borrower's Name information, this information could be added to the Body section of the API call. In this case, this information should be mapped to the "signer" key within the "parties" dictionary of the "loan_info" dictionary of the API Body. For example:
 
 ```
 {
@@ -382,11 +382,11 @@ Developers can provide additional meta data while making an API call to Areal. F
 }
 ```
 
-While the "loan_info" section within the Body of an API call provides tons of flexibility, Areal currently supports the following keys in a "loan_info" dictionary:
+While the "loan_info" section within the Body of an API call provides tons of flexibility, Areal currently supports the following keys in the list of "parties":
 
-- signers (Type=List)
-- notary (Type=Text)
-- witnesses (Type=List)
+- signer
+- notary
+- witness
 
 Please contact your administrator for more information.
 
