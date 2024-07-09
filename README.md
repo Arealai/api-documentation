@@ -377,7 +377,6 @@ Developers can provide additional meta data while making an API call to Areal. F
               "id": "012345678-1234-1234-1234-01234567801234"
             }
           ]
-        }
    },
   "image":"data:application/pdf;base64,JVBERi0x..."
 }
