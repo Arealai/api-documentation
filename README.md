@@ -345,11 +345,41 @@ Developers can provide additional meta data while making an API call to Areal. F
 {
   "name":"Annotation_doc.pdf",
   "loan_info":{
-        "signers": ["BORROWER NAME",  "COBORROWER NAME", "SELLER NAME", "LENDER NAME"],
-        "notary":"", 
-        "witnesses": ["WITNESS NAME-1",  "WITNESS NAME-2"]
+      "parties": [
+            {
+              "name": "BORROWER NAME",
+              "role": "signer",  // buyer 
+              "id": "012345678-1234-1234-1234-01234567801234"
+            },
+            {
+              "name": "COBORROWER NAME",
+              "role": "signer",  // buyer 
+              "id": "012345678-1234-1234-1234-01234567801234"
+            },
+            {
+              "name": "SELLER NAME",
+              "role": "signer",  // seller
+              "id": "012345678-1234-1234-1234-01234567801234"
+            },
+            {
+              "name": "LENDER NAME",
+              "role": "signer", // lender
+              "id": "012345678-1234-1234-1234-01234567801234"
+            },
+            {
+              "name": "NAME",
+              "role": "notary",
+              "id": "012345678-1234-1234-1234-01234567801234"
+            },
+            {
+              "name": "NAME",
+              "role": "witness",
+              "id": "012345678-1234-1234-1234-01234567801234"
+            }
+          ]
+        }
    },
-  "image":"data:application/pdf;base64,JVBERi0x...
+  "image":"data:application/pdf;base64,JVBERi0x..."
 }
 ```
 
