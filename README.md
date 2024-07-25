@@ -19,8 +19,8 @@
 - [Feedback API for Extracted Data](#feedback-api-for-extracted-data)
 - [Sample OCR Response](#sample-ocr-response)
 
+<br></br>
 
-<br>
 ## Introduction
 
 Welcome to Areal.ai.  Areal.ai provides automated real-time image classification and data extraction services. Areal.ai’s REST API takes an image or PDF file and returns a document type ID and extracted data in a structured format.
