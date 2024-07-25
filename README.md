@@ -1,3 +1,5 @@
+![Single element group](./assets/03-areal_black.png)
+
 # Areal.ai API Documentation
 
 Welcome to Areal.ai.  Areal.ai provides automated real-time image classification and data extraction services. Areal.ai’s REST API takes an image or PDF file and returns a document type ID and extracted data in a structured format.
