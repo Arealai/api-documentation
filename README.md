@@ -17,6 +17,7 @@
 - [Get Documents](#get-documents)
 - [Search and Get Sessions](#search-and-get-sessions)
 - [Feedback API for Extracted Data](#feedback-api-for-extracted-data)
+- [Document Status Change](#document-status-change)
 - [Sample OCR Response](#sample-ocr-response)
 
 
