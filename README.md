@@ -5,10 +5,10 @@
 ##### Table of Contents  
 [Introduction](#introduction)  
 [Getting Started](#getting-started)
-...snip...
 
-<a name="introduction"/>
-## Introduction
+
+<a name="introduction">## Introduction</a>
+
 
 Welcome to Areal.ai.  Areal.ai provides automated real-time image classification and data extraction services. Areal.ai’s REST API takes an image or PDF file and returns a document type ID and extracted data in a structured format.
 
