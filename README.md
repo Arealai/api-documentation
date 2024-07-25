@@ -2,7 +2,7 @@
 
 # Areal.ai API Documentation
 
-## Table of Contents  
+### Table of Contents  
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
 - [Authentication](#authentication)
