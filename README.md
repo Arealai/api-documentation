@@ -40,7 +40,7 @@ Document processing is accomplished with a single API call. To make a successful
 
 Sample Python code is as follows:
 
-```json
+```
 import base64
 import json
 import requests
@@ -147,7 +147,7 @@ A sample response to this Document Classification API call will be as follows.
 
 *results* key will include a list of documents detected within the original document uploaded to the platform. Each document will have a *template_uuid* assigned to it. This template_uuid represents the unique ID of the document type detected. 
 
-```json
+```
 {
     "results": [
         {
