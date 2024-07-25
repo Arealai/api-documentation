@@ -52,7 +52,7 @@ To authenticate, you need to provide the API key in the header. The key is gener
 
 To be able to authorize, construct the following phrase and add it to the headers with "Authorization" key.
 
-```json
+```
 'Authorization': 'ApiKey Customer_account_id:Customer_key',  # TODO: Update here
 ```
 
