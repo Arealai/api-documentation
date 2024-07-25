@@ -894,7 +894,7 @@ Potential values are "draft" and "active".
 
 ## Sample OCR Response
 
-```
+```json
 [
   {
     "component_results": [
