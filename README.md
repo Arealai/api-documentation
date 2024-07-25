@@ -19,7 +19,6 @@
 - [Feedback API for Extracted Data](#feedback-api-for-extracted-data)
 - [Sample OCR Response](#sample-ocr-response)
 
-<br></br>
 
 ## Introduction
 
