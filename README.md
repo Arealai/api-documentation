@@ -14,7 +14,10 @@
 - [Loan Info Meta](#loan-info-meta)
 - [Async API Call](#async-api-call)
 - [Webhooks](#Webhooks)
-- [](#)
+- [Get Documents](#get-documents)
+- [Search and Get Sessions](#search-and-get-sessions)
+- [Feedback API for Extracted Data](#feedback-api-for-extracted-data)
+- [Sample OCR Response](#sample-ocr-response)
 
 
 
@@ -640,7 +643,7 @@ Default parameters are:
 - updated_at
 
 
-## Sessions, Search and Get Sessions
+## Search and Get Sessions
 
 **Session API: https://areal.ai/api/v1/upload_session/**
 
@@ -890,7 +893,7 @@ The status key-value pair above should be added to this request.
 
 Potential values are "draft" and "active".
 
-## Sample Response
+## Sample OCR Response
 
 ```
 [
