@@ -3,25 +3,19 @@
 # Areal.ai API Documentation
 
 ## Table of Contents  
-[Introduction](#introduction)  
-[Getting Started](#getting-started)
-[Authentication](#authentication)
-[Organization Specific URLs](#organization-specific-urls)
-[Document Classification API](#document-classification-api)
-[Data Extraction API](#data-extraction-api)
-[CD Balancer API](#cd-balancer-api)
-[Annotation API](#annotation-api)
-[Loan Info Meta](#loan-info-meta)
-[Async API Call])(#async-api-call)
-[Webhooks])(#Webhooks)
-[])(#)
-[])(#)
-[])(#)
-[])(#)
-[])(#)
-[])(#)
-[])(#)
-[])(#)
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+- [Authentication](#authentication)
+- [Organization Specific URLs](#organization-specific-urls)
+- [Document Classification API](#document-classification-api)
+- [Data Extraction API](#data-extraction-api)
+- [CD Balancer API](#cd-balancer-api)
+- [Annotation API](#annotation-api)
+- [Loan Info Meta](#loan-info-meta)
+- [Async API Call](#async-api-call)
+- [Webhooks](#Webhooks)
+- [](#)
+
 
 
 ## Introduction
