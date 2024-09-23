@@ -451,6 +451,8 @@ Areal.ai also supports Webhooks (GET requests only). In order to activate a Webh
 
 The Webhook payload will include different information for different cases. Currently, there are 3 different payloads.
 
+You can test your Webhook endpoints by adding "test_webhook=1" to your query string when you make a regular API call to process files, this will actually not process files, instead it will intentionally trigger a failure Webhook notification just for testing purposes.
+
 **First Notification: Session is Created.**
 
 A notification with JSON payload will be sent when a new Session/Loan is created, this is just for the reference and does not mean that document(s) are processed yet (which might be still getting processed.) A separate notification with 'document' details will be sent when all document(s) are processed within this Session.
@@ -520,6 +522,7 @@ Payload:
 {
    "notification": {
         "success": false,
+        "test_webhook": true, // this is added only when true if test webhook mode is enabled
         "process_id": "GUID of the process id",  
         "session_uuid": "aaaa1111-bbbb-cccc-dddd-eeee22224444", 
         "session_name": "Loan #12345", 
