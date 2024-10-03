@@ -411,7 +411,7 @@ Developers can provide additional meta data while making an API call to Areal. F
               "initial_deposit": 80,000,
               "lender_insurance_policy_amount": 320,000,
               "title_insurance_policy_amount": 400,000,
-              "mortgage_insurance_amount": 320,000
+              "mortgage_insurance_policy_amount": 320,000
             },
       "properties": [
             {
