@@ -372,6 +372,7 @@ Developers can provide additional meta data while making an API call to Areal. F
 {
   "name":"Annotation_doc.pdf",
   "loan_info":{
+      "external_id": "5430342343"
       "parties": [
             {
               "name": "BORROWER NAME",
@@ -402,6 +403,21 @@ Developers can provide additional meta data while making an API call to Areal. F
               "name": "NAME",
               "role": "witness",
               "id": "012345678-1234-1234-1234-01234567801234"
+            }
+          ],
+      "financials": {
+              "sales_price": 400,000,
+              "loan_amount": 320,000,
+              "initial_deposit": 80,000
+            },
+      "properties": [
+            {
+              "address": "100 Ricmond Drive Apt 3",
+              "city": "Los Angeles",
+              "state": "CA",
+              "zip": "90411",
+              "tax_id": "4142112442",
+              "legal_description": "Lot 504 Plat 4"
             }
           ]
    },
