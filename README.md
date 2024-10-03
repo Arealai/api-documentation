@@ -415,6 +415,7 @@ Developers can provide additional meta data while making an API call to Areal. F
             },
       "properties": [
             {
+              "subject": true,
               "address": "100 Ricmond Drive Apt 3",
               "city": "Los Angeles",
               "state": "CA",
