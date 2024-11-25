@@ -423,6 +423,18 @@ Developers can provide additional meta data while making an API call to Areal. F
               "tax_id": "4142112442",
               "legal_description": "Lot 504 Plat 4"
             }
+          ],
+      "service_providers": [
+            {
+              "name": "Great Title Company",
+              "role": "Title",  
+              "id": "012345678-1234-1234-1234-01234567801234" // Optional. External ID of this service provider.
+            },
+            {
+              "name": "Fast Escrow Company",
+              "role": "Escrow",  // buyer 
+              "id": "012345678-1234-1234-1234-01234567801234" // Optional. External ID of this service provider.
+            },
           ]
    },
   "image":"data:application/pdf;base64,JVBERi0x..."
