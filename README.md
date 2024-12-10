@@ -3,22 +3,32 @@
 # Areal.ai API Documentation
 
 ### Table of Contents  
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-- [Authentication](#authentication)
-- [Organization Specific URLs](#organization-specific-urls)
-- [Document Classification API](#document-classification-api)
-- [Data Extraction API](#data-extraction-api)
-- [CD Balancer API](#cd-balancer-api)
-- [Annotation API](#annotation-api)
-- [Loan Info Meta](#loan-info-meta)
-- [Async API Call](#async-api-call)
-- [Webhooks](#Webhooks)
-- [Get Documents](#get-documents)
-- [Search and Get Sessions](#search-and-get-sessions)
-- [Feedback API for Extracted Data](#feedback-api-for-extracted-data)
-- [Document Status Change](#document-status-change)
-- [Sample OCR Response](#sample-ocr-response)
+- [Areal.ai API Documentation](#arealai-api-documentation)
+    - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Getting Started](#getting-started)
+  - [Authentication](#authentication)
+  - [Organization Specific URLs](#organization-specific-urls)
+  - [Document Classification API](#document-classification-api)
+  - [Data Extraction API](#data-extraction-api)
+  - [CD Balancer API](#cd-balancer-api)
+  - [Annotation API](#annotation-api)
+  - [Loan Info Meta](#loan-info-meta)
+  - [Async API Call](#async-api-call)
+  - [Webhooks](#webhooks)
+  - [Get Documents](#get-documents)
+  - [Search and Get Sessions](#search-and-get-sessions)
+  - [Feedback API for Extracted Data](#feedback-api-for-extracted-data)
+    - [API Endpoint](#api-endpoint)
+    - [Preparation of request payload](#preparation-of-request-payload)
+    - [Add a new group](#add-a-new-group)
+    - [Update a field](#update-a-field)
+    - [Delete a field](#delete-a-field)
+    - [Highlight Areas](#highlight-areas)
+      - [Fields](#fields)
+    - [Example](#example)
+  - [Document Status Change](#document-status-change)
+  - [Sample OCR Response](#sample-ocr-response)
 
 
 ## Introduction
@@ -127,12 +137,20 @@ post_data = {
    'name': file_name,
    'image': image_type + str(image_base64),
    'template_uuid': template_uuid,
-   'upload_session_uuid':session_uuid
-   'upload_session_name':session_name
+   'upload_session_uuid':session_uuid,
+   'upload_session_name':session_name,
+   'email_communication': {
+    'to': ['to@example.com'],
+    'cc': ['cc@example.com'],
+    'bcc': ['bcc@example.com'],
+    'trigger': 'upon_document_proccess_complete'
+   }
 }
 ```
 
 Image type could be either 'data:application/pdf;base64,' for PDF files, 'data:image/png;base64,' or 'data:image/jpeg;base64,' for different image types.
+
+'email_communication' field allows for sending email notifications on the specified event occurance. Most of the time you'll use 'upon_document_proccess_complete'.
 
 A sample body data is as follows:
 ```
