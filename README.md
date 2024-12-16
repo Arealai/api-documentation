@@ -182,7 +182,7 @@ In the case of data extraction, the API response will return a list of **compone
 
 Each Component Result contains category, name, UUID and extracted_data keys. etracted_data key field contains the details of the extracted data for that component. While *component* objects are assigned to *template* objects and are standard across all documents with the same template, *extracted_data* object will change from document to document since different data points will be extracted from document.
 
-The response currently contains also a list of **extracted_data**. **The extracted_data list will be deprecated by March 31, 2023**. Each extracted_data contains a **component** object which defines the details of the data extracted. Extracted Data field contains the confidence_rate, processed_value (extracted data) and page fields.
+Each extracted_data contains a **component** object which defines the details of the data extracted. Extracted Data field contains the confidence_rate, processed_value (extracted data) and page fields.
 
 ```
 [
@@ -267,54 +267,66 @@ The response currently contains also a list of **extracted_data**. **The extract
                 "uuid": "413007d5-aaaa-bbbb-cccc-bc0e9ae59d65"
             }
         ],
-        "extracted_data": [
-            {
-                "component": {
-                    "category": "text",
-                    "name": "00 - OMD",
-                    "uuid": "6eab0e40-aaaa-bbbb-cccc-1f1efd155a62"
-                },
-                "confidence_rate": 0.97,
-                "page": 0,
-                "processed_value": "1545-0008",
-                "uuid": "c569e403-b7c2-4056-81ea-9fed428064a9"
-            },
-            {
-                "component": {
-                    "category": "text",
-                    "name": "00 - Year",
-                    "uuid": "bb21fca0-aaaa-bbbb-cccc-e5e69c6c59af"
-                },
-                "confidence_rate": 0.97,
-                "page": 0,
-                "processed_value": "2017",
-                "uuid": "3e182053-ca70-4409-81af-f6b02ae2753a"
-            },
-            {
-                "component": {
-                    "category": "text",
-                    "name": "00A - Employee SSN",
-                    "uuid": "76d9a130-aaaa-bbbb-cccc-1f1efd155a62"
-                },
-                "confidence_rate": 0.97,
-                "page": 0,
-                "processed_value": "123-45-6789",
-                "uuid": "e48b265a-4cde-4408-83d6-f7b227d8d4ed"
-            },
-            {
-                "component": {
-                    "category": "text",
-                    "name": "00B - Employee Name",
-                    "uuid": "413007d5-aaaa-bbbb-cccc-bc0e9ae59d65"
-                },
-                "confidence_rate": 0.97,
-                "page": 0,
-                "processed_value": "Jane A. Doe",
-                "uuid": "82533e77-e466-4d80-b779-e950fae19b9e"
-            }
-        ]
     }
 ]
+```
+
+Optionally, custom extracted data can also be provided when making this api call which simply skips internal data extraction process and uses provided extracted data results instead.  
+
+```
+post_data = {
+   "source": "web",
+   "name": file_name,
+   "image": image_type + str(image_base64),
+   "template_uuid": template_uuid,  # this will be used as document type instead
+   "upload_session_uuid":session_uuid
+   "upload_session_name":session_name,
+   "component_results": [ # as a list in the same format as output explained above.
+        {
+            "accepts_multiple": false,
+            "arla": "",
+            "category": "text",
+            "extracted_data": [
+                {
+                    "approved_value": "1545-0008",
+                    "confidence_rate": "0.9871",
+                    "grouped_data": [],
+                    "height_percent": 0.015,
+                    "page": 0,
+                    "processed_value": "1545-0008",
+                    "uuid": "8fb25bde-8dca-45aa-80b9-6d75fca747e9",
+                    "width_percent": "0.0610",
+                    "x_percent": "0.5200",
+                    "y_percent": "0.0940"
+                }
+            ],
+            "name": "00 - OMD",
+            "uuid": "6eab0e40-e300-11e9-93dd-1f1efd155a62"
+        },
+        {
+            "accepts_multiple": false,
+            "arla": "",
+            "category": "text",
+            "extracted_data": [
+                {
+                    "approved_value": "2017",
+                    "confidence_rate": "0.9871",
+                    "grouped_data": [],
+                    "height_percent": 0.049,
+                    "page": 0,
+                    "processed_value": "2017",
+                    "uuid": "d7515d90-6f6f-4d01-aa4f-12ef31303491",
+                    "width_percent": "0.1180",
+                    "x_percent": "0.4310",
+                    "y_percent": "0.8520"
+                }
+            ],
+            "name": "00 - Year",
+            "uuid": "bb21fca0-f74d-11e9-8b38-e5e69c6c59af"
+        }, ...
+    ]
+
+}
 ```
 
 ## CD Balancer API
