@@ -143,14 +143,14 @@ post_data = {
     'to': ['to@example.com'],
     'cc': ['cc@example.com'],
     'bcc': ['bcc@example.com'],
-    'trigger': 'upon_document_proccess_complete'
+    'trigger': 'on_document_processing_complete'
    }
 }
 ```
 
 Image type could be either 'data:application/pdf;base64,' for PDF files, 'data:image/png;base64,' or 'data:image/jpeg;base64,' for different image types.
 
-'email_communication' field allows for sending email notifications on the specified event occurance. Most of the time you'll use 'upon_document_proccess_complete'.
+'email_communication' field allows for sending email notifications on the specified event occurance. Most of the time you'll use 'on_document_processing_complete'.
 
 A sample body data is as follows:
 ```
