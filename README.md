@@ -16,8 +16,8 @@
   - [Loan Info Meta](#loan-info-meta)
   - [Async API Call](#async-api-call)
   - [Webhooks](#webhooks)
-  - [Get Documents](#get-documents)
   - [Email Notifications](#email-notifications)
+  - [Get Documents](#get-documents)
   - [Search and Get Sessions](#search-and-get-sessions)
   - [Feedback API for Extracted Data](#feedback-api-for-extracted-data)
     - [API Endpoint](#api-endpoint)
@@ -635,19 +635,22 @@ post_data = {
    'template_uuid': template_uuid,
    'upload_session_uuid':session_uuid,
    'upload_session_name':session_name,
-**   'email_communication': {
-        'to': ['to@example.com'],
-        'cc': ['cc@example.com'],
+   // Email communication fields to be populated 
+   'email_communication': {                
+        'to':  ['to@example.com'],
+        'cc':  ['cc@example.com'],
         'bcc': ['bcc@example.com'],
         'trigger': 'on_document_processing_complete'
-   }**
+   }
 }
 ```
 
-Areal currently supports 2 email triggers:
+Email triggers should be provided in the payload to specify when the required users should be notifid. If the trigger field is not provided, Areal will not be sending emails. Areal currently supports 2 email triggers:
 
 - on_document_processing_complete: Upon document processing is complete, Areal sends an email to the specified user for both Fail and Success cases.
 - on_cd_balancing_complete: Upon CD Balancing is complete, Areal sends an email to the specified user.
+
+Email notifications can be sent to multiple users, provided that the email details are included in the payload.﻿
 
 For more information, please contact the Areal.ai customer success.
 
