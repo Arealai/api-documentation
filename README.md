@@ -139,18 +139,10 @@ post_data = {
    'template_uuid': template_uuid,
    'upload_session_uuid':session_uuid,
    'upload_session_name':session_name,
-   'email_communication': {
-    'to': ['to@example.com'],
-    'cc': ['cc@example.com'],
-    'bcc': ['bcc@example.com'],
-    'trigger': 'on_document_processing_complete'
-   }
 }
 ```
 
 Image type could be either 'data:application/pdf;base64,' for PDF files, 'data:image/png;base64,' or 'data:image/jpeg;base64,' for different image types.
-
-'email_communication' field allows for sending email notifications on the specified event occurance. Most of the time you'll use 'on_document_processing_complete'.
 
 A sample body data is as follows:
 ```
@@ -627,6 +619,36 @@ Payload:
 The "session_uuid" can be used to programmatically pull the results of the document processing Session. Please check the "Sessions, Search and Get Sessions" section below for more information.
 
 For additional quesitons, please contact the Areal.ai Team.
+
+## Email Notifications
+
+Areal enables you to send email notifications to your users once document processing is finished. To activate this feature, include the 'email_communication' field when making an OCR API call to Areal. This field ensures email notifications are sent to designated users upon the occurrence of a specified event.
+
+Below is an example for the 'on_document_processing_complete' email trigger.
+
+```
+post_data = {
+   'source': "web",
+   'name': file_name,
+   'image': image_type + str(image_base64),
+   'template_uuid': template_uuid,
+   'upload_session_uuid':session_uuid,
+   'upload_session_name':session_name,
+**   'email_communication': {
+        'to': ['to@example.com'],
+        'cc': ['cc@example.com'],
+        'bcc': ['bcc@example.com'],
+        'trigger': 'on_document_processing_complete'
+   }**
+}
+```
+
+Areal currently supports 2 email triggers:
+
+- on_document_processing_complete: Upon document processing is complete, Areal sends an email to the specified user for both Fail and Success cases.
+- on_cd_balancing_complete: Upon CD Balancing is complete, Areal sends an email to the specified user.
+
+For more information, please contact the Areal.ai customer success.
 
 
 ## Get Documents
