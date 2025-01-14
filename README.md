@@ -647,8 +647,8 @@ post_data = {
 
 Email triggers should be provided in the payload to specify when the required users should be notifid. If the trigger field is not provided, Areal will not be sending emails. Areal currently supports 2 email triggers:
 
-- on_document_processing_complete: Upon document processing is complete, Areal sends an email to the specified user for both Fail and Success cases.
-- on_cd_balancing_complete: Upon CD Balancing is complete, Areal sends an email to the specified user.
+- **on_document_processing_complete**: Upon document processing is complete, Areal sends an email to the specified user for both Fail and Success cases.
+- **on_cd_balancing_complete**: Upon CD Balancing is complete, Areal sends an email to the specified user.
 
 Email notifications can be sent to multiple users, provided that the email details are included in the payload.﻿
 
