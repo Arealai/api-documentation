@@ -17,6 +17,7 @@
   - [Async API Call](#async-api-call)
   - [Webhooks](#webhooks)
   - [Get Documents](#get-documents)
+  - [Email Notifications](#email-notifications)
   - [Search and Get Sessions](#search-and-get-sessions)
   - [Feedback API for Extracted Data](#feedback-api-for-extracted-data)
     - [API Endpoint](#api-endpoint)
