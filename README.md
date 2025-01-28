@@ -399,22 +399,32 @@ Developers can provide additional meta data while making an API call to Areal. F
       "parties": [
             {
               "name": "BORROWER NAME",
-              "role": "signer",  // buyer
+              "role": "signer",
+              "relation": "borrower"   // Borrower
               "id": "012345678-1234-1234-1234-01234567801234"
             },
             {
               "name": "COBORROWER NAME",
-              "role": "signer",  // buyer 
+              "role": "signer",
+              "relation": "co-borrower"   // Co-borrower
               "id": "012345678-1234-1234-1234-01234567801234"
             },
             {
               "name": "SELLER NAME",
-              "role": "signer",  // seller
+              "role": "signer",
+              "relation": "seller"   // Seller
+              "id": "012345678-1234-1234-1234-01234567801234"
+            },
+            {
+              "name": "COSELLER NAME",
+              "role": "signer",
+              "relation": "co-seller"   // Co-seller
               "id": "012345678-1234-1234-1234-01234567801234"
             },
             {
               "name": "LENDER NAME",
-              "role": "signer", // lender
+              "role": "signer",
+              "relation": "lender"   // Lender
               "id": "012345678-1234-1234-1234-01234567801234"
             },
             {
@@ -429,35 +439,34 @@ Developers can provide additional meta data while making an API call to Areal. F
             }
           ],
       "transaction": {
-              "transaction_type": "Purchase",  # Acceptable fields: "Puchase", "Refinance", "Other"
-              "loan_product": "FHA",  # For example FHA 30
-              "sales_price": 400,000,
+              "loan_purpose": "purchase",  # Acceptable fields: "purchase", "cash-out-refi", "no-cash-out-refi", "construction", "construction-perm", "other"
+              "loan_type": "FHA",  # For example Jumbo-15, Jumbo-30, FHA-15, FHA-30 
+              "purchase_price": 400,000,
               "loan_amount": 320,000,
               "initial_deposit": 80,000,
-              "lender_insurance_policy_amount": 320,000,
-              "title_insurance_policy_amount": 400,000,
-              "mortgage_insurance_policy_amount": 320,000
+              "additional_deposit": 80,000
             },
       "properties": [
             {
-              "subject": true,
-              "address": "100 Ricmond Drive Apt 3",
+              "street": "100 Ricmond Drive",
+              "unit": "Apt 3",
               "city": "Los Angeles",
               "state": "CA",
               "zip": "90411",
-              "tax_id": "4142112442",
+              "county": "Los Angeles",
+              "parcel_id": "4142112442",
               "legal_description": "Lot 504 Plat 4"
             }
           ],
       "service_providers": [
             {
               "name": "Great Title Company",
-              "role": "Title",  
+              "relation": "title"   // Title
               "id": "012345678-1234-1234-1234-01234567801234" // Optional. External ID of this service provider.
             },
             {
               "name": "Fast Escrow Company",
-              "role": "Escrow",  // buyer 
+              "relation": "escrow"   // Escrow
               "id": "012345678-1234-1234-1234-01234567801234" // Optional. External ID of this service provider.
             },
           ]
