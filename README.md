@@ -399,7 +399,7 @@ Developers can provide additional meta data while making an API call to Areal. F
       "parties": [
             {
               "name": "BORROWER NAME",
-              "role": "signer",  // buyer 
+              "role": "signer",  // buyer
               "id": "012345678-1234-1234-1234-01234567801234"
             },
             {
@@ -428,7 +428,9 @@ Developers can provide additional meta data while making an API call to Areal. F
               "id": "012345678-1234-1234-1234-01234567801234"
             }
           ],
-      "financials": {
+      "transaction": {
+              "transaction_type": "Purchase",  # Acceptable fields: "Puchase", "Refinance", "Other"
+              "loan_product": "FHA",  # For example FHA 30
               "sales_price": 400,000,
               "loan_amount": 320,000,
               "initial_deposit": 80,000,
