@@ -401,41 +401,41 @@ Developers can provide additional meta data while making an API call to Areal. F
               "name": "BORROWER NAME",
               "role": "signer",
               "relation": "borrower"   // Borrower
-              "id": "012345678-1234-1234-1234-01234567801234"
+              "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
               "name": "COBORROWER NAME",
               "role": "signer",
               "relation": "co-borrower"   // Co-borrower
-              "id": "012345678-1234-1234-1234-01234567801234"
+              "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
               "name": "SELLER NAME",
               "role": "signer",
               "relation": "seller"   // Seller
-              "id": "012345678-1234-1234-1234-01234567801234"
+              "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
               "name": "COSELLER NAME",
               "role": "signer",
               "relation": "co-seller"   // Co-seller
-              "id": "012345678-1234-1234-1234-01234567801234"
+              "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
               "name": "LENDER NAME",
               "role": "signer",
               "relation": "lender"   // Lender
-              "id": "012345678-1234-1234-1234-01234567801234"
+              "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
               "name": "NAME",
               "role": "notary",
-              "id": "012345678-1234-1234-1234-01234567801234"
+              "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
               "name": "NAME",
               "role": "witness",
-              "id": "012345678-1234-1234-1234-01234567801234"
+              "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             }
           ],
       "transaction": {
