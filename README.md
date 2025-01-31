@@ -400,13 +400,13 @@ Developers can provide additional meta data while making an API call to Areal. F
             {
               "name": "BORROWER NAME",
               "role": "signer",
-              "relation": "borrower"   // Borrower
+              "relation": "buyer"   // Borrower
               "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
               "name": "COBORROWER NAME",
               "role": "signer",
-              "relation": "co-borrower"   // Co-borrower
+              "relation": "co-buyer"   // Co-borrower
               "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
