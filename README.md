@@ -398,15 +398,15 @@ Developers can provide additional meta data while making an API call to Areal. F
       "external_id": "5430342343"
       "parties": [
             {
-              "name": "BORROWER NAME",
+              "name": "BUYER NAME",
               "role": "signer",
-              "relation": "buyer"   // Borrower
+              "relation": "buyer"   // Buyer/Borrower
               "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
-              "name": "COBORROWER NAME",
+              "name": "COBUYER NAME",
               "role": "signer",
-              "relation": "co-buyer"   // Co-borrower
+              "relation": "co-buyer"   // Co-buyer/borrower
               "id": "012345678-1234-1234-1234-01234567801234"    // Customer's internal ID for this party
             },
             {
