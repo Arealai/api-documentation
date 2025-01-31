@@ -439,7 +439,7 @@ Developers can provide additional meta data while making an API call to Areal. F
             }
           ],
       "transaction": {
-              "loan_purpose": "purchase",  # Acceptable fields: "purchase", "refinance", "cash-out-refi", "no-cash-out-refi", "construction", "construction-perm", "other"
+              "loan_purpose": "purchase",  # Acceptable fields: "purchase", "cash-purchase", "refinance", "cash-out-refi", "no-cash-out-refi", "construction", "construction-perm", "other"
               "loan_type": "FHA",  # For example Jumbo-15, Jumbo-30, FHA-15, FHA-30 
               "purchase_price": 400,000,
               "loan_amount": 320,000,
