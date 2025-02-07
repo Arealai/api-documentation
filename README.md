@@ -137,8 +137,8 @@ post_data = {
    'source': "web",
    'name': file_name,
    'image': image_type + str(image_base64),
-   'template_uuid': template_uuid,
-   'upload_session_uuid':session_uuid,
+   'template_uuid': template_uuid,   // Only include this line in the payload if you intend to assign a document type/template to the uploaded document.
+   'upload_session_uuid':session_uuid,  // Only include this line in the payload if you intend to upload the document to a specific session.﻿
    'upload_session_name':session_name,
 }
 ```
@@ -178,7 +178,7 @@ A sample response to this Document Classification API call will be as follows.
     "upload_session_uuid": "8a67ce10-8670-11eb-a0e4-af71473a31ce"
 }
 ```
-In addition, the response includes a unique *upload_session_uuid*. This upload_session_uuid will be the same UUID as the initial upload_session_uuid provided in the OCR API. If you provide a upload_session_uuid, these documents will be added to that Session Folder. If not, the Areal.ai platform will create a new session and add these documents to that session.  
+In addition, the response includes a unique *upload_session_uuid*. This upload_session_uuid will be the same UUID as the initial upload_session_uuid provided in the OCR API. If you provide a upload_session_uuid, these documents will be added to that Session Folder. If not, the Areal.ai platform will create a new session and add these documents to that session. Please note that this field should only be included in the payload if you intend to upload the document to a specific session.﻿
 
 
 ## Data Extraction API
