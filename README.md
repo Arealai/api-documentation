@@ -651,7 +651,7 @@ post_data = {
         'to':  ['to@example.com'],
         'cc':  ['cc@example.com'],
         'bcc': ['bcc@example.com'],
-        'trigger': 'on_document_processing_complete'
+        'trigger': ['on_document_processing_complete']
    }
 }
 ```
