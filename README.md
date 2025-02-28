@@ -640,18 +640,18 @@ Below is an example for the 'on_document_processing_complete' email trigger.
 
 ```
 post_data = {
-   'source': "web",
-   'name': file_name,
-   'image': image_type + str(image_base64),
-   'template_uuid': template_uuid,
-   'upload_session_uuid':session_uuid,
-   'upload_session_name':session_name,
+   "source": "web",
+   "name": file_name,
+   "image": image_type + str(image_base64),
+   "template_uuid": template_uuid,
+   "upload_session_uuid": session_uuid,
+   "upload_session_name": session_name,
    // Email communication fields to be populated 
-   'email_communication': {                
-        'to':  ['to@example.com'],
-        'cc':  ['cc@example.com'],
-        'bcc': ['bcc@example.com'],
-        'trigger': ['on_document_processing_complete']
+   "email_communication": {                
+        "to":  ["to@example.com"],
+        "cc":  ["cc@example.com"],
+        "bcc": ["bcc@example.com"],
+        "trigger": ["on_document_processing_complete"]
    }
 }
 ```
