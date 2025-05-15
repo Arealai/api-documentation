@@ -444,7 +444,8 @@ Developers can provide additional meta data while making an API call to Areal. F
               "purchase_price": 400,000,
               "loan_amount": 320,000,
               "initial_deposit": 80,000,
-              "additional_deposit": 80,000
+              "additional_deposit": 80,000,
+              "annotation_transaction_type": "bulk", # No need to provide this if this transaction is not a bulk transaction.
             },
       "properties": [
             {
